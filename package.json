@@ -1,0 +1,37 @@
+{
+  "name": "spotthecat",
+  "version": "1.0.0",
+  "description": "A Cat based quiz game",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests Complete!\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MajesticalMelon/SpotTheCat.git"
+  },
+  "author": "Owen Wicker",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/MajesticalMelon/SpotTheCat/issues"
+  },
+  "homepage": "https://github.com/MajesticalMelon/SpotTheCat#readme",
+  "type": "module",
+  "prettier": {
+    "semi": true,
+    "printWidth": 80,
+    "singleQuote": true,
+    "tabWidth": 2
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-module-utils": "^2.8.0",
+    "eslint-plugin-import": "^2.28.1"
+  },
+  "dependencies": {
+    "querystring": "^0.2.1"
+  }
+}
