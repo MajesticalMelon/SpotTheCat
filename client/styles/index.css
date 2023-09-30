@@ -4,8 +4,8 @@ html {
 
 body {
     margin: 0;
-    background-image: url('./../images/leopard.jpg');
-    backdrop-filter: blur(4px);
+    background-image: url('./../images/jungle.jpg');
+    background-size: cover;
 }
 
 main {
@@ -22,14 +22,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    background-color: #FFFFFF33;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 5px 5px 5px 20px #FFFFFF33;
+    color: white;
 }
 
 #title {
     font-size: 48pt;
     text-shadow: 1rem white;
+}
+
+#playButton {
+    color: white;
+    background-color: #333333;
 }
