@@ -5,5 +5,8 @@
 	"no-plusplus": "off",
     "import/extensions": "off",
     "linebreak-style": "off"
+  },
+  "env": {
+    "browser": true
   }
 }

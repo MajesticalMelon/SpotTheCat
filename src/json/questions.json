@@ -1,0 +1,10 @@
+[
+    {
+        "prompt": "Which one is a leopard?",
+        "images": ["leopard.com", "cheetah.com", "jaguar.com"],
+        "answer": {
+            "type": "leopard", 
+            "index": "2"
+        }
+    }
+]
