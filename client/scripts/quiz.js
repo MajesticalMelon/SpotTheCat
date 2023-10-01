@@ -53,6 +53,7 @@ const saveScore = async () => {
 const getRandomQuestion = async () => {
   if (numQuestions === MAX_QUESTIONS) {
     await saveScore();
+    window.open('/results', '_self');
     return;
   }
 
