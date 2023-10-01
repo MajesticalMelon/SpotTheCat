@@ -2,6 +2,7 @@ import { createServer } from 'http';
 import getCSS from './routes/styles.js';
 import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
+import getQuestion from './routes/questions.js';
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -26,8 +27,14 @@ const onRequest = (request, response) => {
     case '/':
       pageHandler.getIndexHTML(request, response);
       break;
+    case '/rules':
+      pageHandler.getRulesHTML(request, response);
+      break;
     case '/quiz':
       pageHandler.getQuizHTML(request, response);
+      break;
+    case '/question':
+      getQuestion(request, response);
       break;
     case '/favicon.ico':
       break;

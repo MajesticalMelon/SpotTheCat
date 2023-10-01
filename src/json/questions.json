@@ -1,10 +1,29 @@
 [
     {
         "prompt": "Which one is a leopard?",
-        "images": ["leopard.com", "cheetah.com", "jaguar.com"],
+        "order": "lcj",
         "answer": {
-            "type": "leopard", 
-            "index": "2"
+            "animal": "l", 
+            "index": "0",
+            "answered": false
+        }
+    },
+    {
+        "prompt": "Which one is a cheetah?",
+        "order": "lcj",
+        "answer": {
+            "animal": "c", 
+            "index": "1",
+            "answered": false
+        }
+    },
+    {
+        "prompt": "Which one is a jaguar?",
+        "order": "lcj",
+        "answer": {
+            "animal": "j", 
+            "index": "2",
+            "answered": false
         }
     }
 ]

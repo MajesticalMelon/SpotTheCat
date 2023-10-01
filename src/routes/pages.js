@@ -1,11 +1,18 @@
 import * as fs from 'fs';
 
 const index = fs.readFileSync('client/index.html');
+const rules = fs.readFileSync('client/rules.html');
 const quiz = fs.readFileSync('client/quiz.html');
 
 export const getIndexHTML = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
   response.write(index);
+  response.end();
+};
+
+export const getRulesHTML = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.write(rules);
   response.end();
 };
 

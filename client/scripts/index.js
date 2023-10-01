@@ -1,5 +1,5 @@
 const playButton = document.getElementById('playButton');
 
 playButton.onclick = () => {
-  window.open('/quiz', '_self');
+  window.open('/rules', '_self');
 };
