@@ -2,7 +2,7 @@ let numberCorrect = 0;
 let numQuestions = 0;
 const MAX_QUESTIONS = 10;
 
-const getRandomImage = async (order) => {
+const getRandomImages = async (order) => {
   const numImagesPerAnimal = 3;
   const images = {};
 
@@ -65,7 +65,7 @@ const getRandomQuestion = async () => {
   const data = await fetch('/question', { method: 'GET', headers: { Accept: 'application/json' } });
   const json = await data.json();
 
-  const images = await getRandomImage(json.order);
+  const images = await getRandomImages(json.order);
   const fact = await getRandomFact();
 
   const prompt = document.getElementById('question');
