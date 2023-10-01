@@ -3,6 +3,7 @@ import getCSS from './routes/styles.js';
 import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
 import getQuestion from './routes/questions.js';
+import getImage from './routes/images.js';
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -17,7 +18,7 @@ const onRequest = (request, response) => {
       getCSS(request, response);
       return;
     case 'images':
-      getCSS(request, response);
+      getImage(request, response);
       return;
     default:
       break;

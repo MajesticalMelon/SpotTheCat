@@ -4,8 +4,7 @@
         "order": "lcj",
         "answer": {
             "animal": "l", 
-            "index": "0",
-            "answered": false
+            "index": "0"
         }
     },
     {
@@ -13,8 +12,7 @@
         "order": "lcj",
         "answer": {
             "animal": "c", 
-            "index": "1",
-            "answered": false
+            "index": "1"
         }
     },
     {
@@ -22,8 +20,7 @@
         "order": "lcj",
         "answer": {
             "animal": "j", 
-            "index": "2",
-            "answered": false
+            "index": "2"
         }
     }
 ]

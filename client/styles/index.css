@@ -1,46 +1,45 @@
 :root {
-    --white: #FEFFFE;
-    --black: #252627;
+  --white: #fefffe;
+  --black: #252627;
 }
 
 html {
-    font-family: 'Manrope', sans-serif;
-    font-size: 48pt;
-
+  font-family: 'Manrope', sans-serif;
+  font-size: 36pt;
 }
 
 body {
-    margin: 0;
-    background-image: url('./../images/jungle.jpg');
-    background-size: cover;
+  margin: 0;
+  background-image: url('./../images/jungle.jpg');
+  background-size: cover;
 }
 
 main {
-    height: 100vh;
+  height: 100vh;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    margin-top: -1rem;
+  margin-top: -1rem;
 }
 
 #title {
-    margin: 0;
+  margin: 0;
 }
 
 #container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
 }
 
 #playButton {
-    color: var(--white);
-    background-color: var(--black);
-    font-size: 18pt;
-    padding: 0.2rem 0.3rem;
+  color: var(--white);
+  background-color: var(--black);
+  font-size: 18pt;
+  padding: 0.2rem 0.3rem;
 }
