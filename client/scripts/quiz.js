@@ -50,6 +50,11 @@ const saveScore = async () => {
   });
 };
 
+const getRandomFact = async () => {
+  const data = await fetch('https://catfact.ninja/fact?max_length=100', { method: 'GET', headers: { accept: 'application/json' } });
+  return data.json();
+};
+
 const getRandomQuestion = async () => {
   if (numQuestions === MAX_QUESTIONS) {
     await saveScore();
@@ -61,10 +66,14 @@ const getRandomQuestion = async () => {
   const json = await data.json();
 
   const images = await getRandomImage(json.order);
+  const fact = await getRandomFact();
 
   const prompt = document.getElementById('question');
   const imageContainer = document.getElementById('images');
+  const factContainer = document.getElementById('facts');
   const feedback = document.getElementById('feedback');
+
+  factContainer.innerText = fact.fact;
 
   prompt.innerText = json.prompt;
 
