@@ -1,5 +1,12 @@
+:root {
+    --white: #FEFFFE;
+    --black: #252627;
+}
+
 html {
-    font-family: sans-serif;
+    font-family: 'Manrope', sans-serif;
+    font-size: 48pt;
+
 }
 
 body {
@@ -15,6 +22,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    margin-top: -1rem;
+}
+
+#title {
+    margin: 0;
 }
 
 #container {
@@ -22,15 +35,12 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: white;
-}
-
-#title {
-    font-size: 48pt;
-    text-shadow: 1rem white;
+    color: var(--white);
 }
 
 #playButton {
-    color: white;
-    background-color: #333333;
+    color: var(--white);
+    background-color: var(--black);
+    font-size: 18pt;
+    padding: 0.2rem 0.3rem;
 }
