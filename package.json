@@ -4,7 +4,8 @@
   "description": "A Cat based quiz game",
   "main": "src/server.js",
   "scripts": {
-    "start": "nodemon -e js,html,css --watch client --watch src ./src/server.js",
+    "dev": "nodemon -e js,html,css --watch client --watch src ./src/server.js",
+    "start": "node ./src/server.js",
     "pretest": "eslint ./src --fix",
     "test": "echo \"Tests Complete!\""
   },
