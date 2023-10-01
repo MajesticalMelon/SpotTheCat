@@ -4,6 +4,8 @@ import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
 import getQuestion from './routes/questions.js';
 import getImage from './routes/images.js';
+import { parseBody } from './helpers.js';
+import score from './routes/scores.js';
 
 const port = process.env.PORT || process.env.NODE_PORT || 3000;
 
@@ -34,8 +36,14 @@ const onRequest = (request, response) => {
     case '/quiz':
       pageHandler.getQuizHTML(request, response);
       break;
+    case '/results':
+      pageHandler.getResultsHTML(request, response);
+      break;
     case '/question':
       getQuestion(request, response);
+      break;
+    case '/score':
+      parseBody(request, response, score);
       break;
     case '/favicon.ico':
       break;

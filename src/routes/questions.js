@@ -19,7 +19,7 @@ const getQuestion = (request, response) => {
   }
   const index = Math.floor(Math.random() * availableIndices.length);
 
-  response.writeHead(200, '{ Content-type: application/json }');
+  response.writeHead(200, '{ Content-Type: application/json }');
   response.write(JSON.stringify(questions[availableIndices[index]]));
   response.end();
 

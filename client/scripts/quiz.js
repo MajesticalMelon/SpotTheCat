@@ -1,20 +1,6 @@
-let correctAnswers = 0;
-
-const showQuestion = (questionData, imageData) => {
-  const prompt = document.getElementById('question');
-  const imageContainer = document.getElementById('images');
-  const feedback = document.getElementById('feedback');
-
-  prompt.innerText = questionData.prompt;
-  feedback.innerText = `Image ${questionData.answer.index} was correct! That's ${correctAnswers} correct so far!`;
-
-  imageContainer.innerHTML = '';
-  Object.values(imageData).forEach((path) => {
-    imageContainer.innerHTML += `<img src='${path}' alt='cat image' />`;
-  });
-
-  correctAnswers++;
-};
+let numberCorrect = 0;
+let numQuestions = 0;
+const MAX_QUESTIONS = 10;
 
 const getRandomImage = async (order) => {
   const numImagesPerAnimal = 3;
@@ -53,12 +39,56 @@ const getRandomImage = async (order) => {
   return images;
 };
 
+const saveScore = async () => {
+  await fetch('/score', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Accept: 'application/json',
+    },
+    body: `name=test&score=${numberCorrect}`,
+  });
+};
+
 const getRandomQuestion = async () => {
-  const data = await fetch('/question', { method: 'GET' });
+  if (numQuestions === MAX_QUESTIONS) {
+    await saveScore();
+    return;
+  }
+
+  const data = await fetch('/question', { method: 'GET', headers: { Accept: 'application/json' } });
   const json = await data.json();
 
   const images = await getRandomImage(json.order);
-  showQuestion(json, images);
+
+  const prompt = document.getElementById('question');
+  const imageContainer = document.getElementById('images');
+  const feedback = document.getElementById('feedback');
+
+  prompt.innerText = json.prompt;
+
+  imageContainer.innerHTML = '';
+  Object.values(images).forEach((path, i) => {
+    const image = document.createElement('img');
+    image.src = path;
+    image.alt = 'cat image';
+    console.log(json.answer.index, i);
+    if (+i === +json.answer.index) {
+      image.onclick = async () => {
+        numQuestions++;
+        numberCorrect++;
+        await getRandomQuestion();
+      };
+    } else {
+      image.onclick = async () => {
+        numQuestions++;
+        await getRandomQuestion();
+      };
+    }
+    imageContainer.appendChild(image);
+  });
+
+  feedback.innerText = `${numberCorrect}/${numQuestions}`;
 };
 
 document.querySelector('button').onclick = getRandomQuestion;

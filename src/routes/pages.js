@@ -3,6 +3,7 @@ import * as fs from 'fs';
 const index = fs.readFileSync('client/index.html');
 const rules = fs.readFileSync('client/rules.html');
 const quiz = fs.readFileSync('client/quiz.html');
+const results = fs.readFileSync('client/results.html');
 
 export const getIndexHTML = (request, response) => {
   response.writeHead(200, { 'Content-Type': 'text/html' });
@@ -22,8 +23,14 @@ export const getQuizHTML = (request, response) => {
   response.end();
 };
 
+export const getResultsHTML = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'text/html' });
+  response.write(results);
+  response.end();
+};
+
 export const getNotFound = (request, response) => {
-  response.writeHead(404, { 'Content-type': 'application/json' });
+  response.writeHead(404, { 'Content-Type': 'application/json' });
   response.write(JSON.stringify({ id: 'notFound', message: 'The page you are looking for was not found' }));
   response.end();
 };

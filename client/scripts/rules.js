@@ -1,5 +1,3 @@
-console.log('quiz!');
-
 const enableContinue = () => {
   const button = document.getElementById('continue');
   button.disabled = false;
