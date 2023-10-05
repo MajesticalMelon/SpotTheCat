@@ -2,6 +2,8 @@ let numberCorrect = 0;
 let numQuestions = 0;
 const MAX_QUESTIONS = 10;
 
+const currentName = document.location.search.split('=')[1];
+
 const getRandomImages = async (order) => {
   const numImagesPerAnimal = 3;
   const images = {};
@@ -46,7 +48,7 @@ const saveScore = async () => {
       'Content-Type': 'application/x-www-form-urlencoded',
       Accept: 'application/json',
     },
-    body: `name=test&score=${numberCorrect}`,
+    body: `name=${currentName}&score=${numberCorrect}`,
   });
 };
 
@@ -61,7 +63,7 @@ const getRandomFact = async () => {
 const getRandomQuestion = async () => {
   if (numQuestions === MAX_QUESTIONS) {
     await saveScore();
-    window.open('/results', '_self');
+    window.open(`/results?name=${currentName}`, '_self');
     return;
   }
 
@@ -108,3 +110,4 @@ const getRandomQuestion = async () => {
 };
 
 document.querySelector('button').onclick = getRandomQuestion;
+getRandomQuestion();

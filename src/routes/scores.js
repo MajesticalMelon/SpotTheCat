@@ -1,3 +1,5 @@
+import { getParams } from '../helpers.js';
+
 const scores = {};
 
 const score = (request, response, body) => {
@@ -5,9 +7,36 @@ const score = (request, response, body) => {
     request.method.toLowerCase() === 'get'
     || request.method.toLowerCase() === 'head'
   ) {
-    response.writeHead(200, '{ Content-Type: application/json }');
     if (request.method.toLowerCase() === 'get') {
-      response.write(JSON.stringify(scores));
+      let query = request.url.split('?');
+      if (query.length === 0) {
+        response.writeHead(200, '{ Content-Type: application/json }');
+        response.write(JSON.stringify(scores));
+      } else {
+        query = query[1].split('=');
+        if (query[0] === 'name') {
+          if (scores[query[1]]) {
+            response.writeHead(200, '{ Content-Type: application/json }');
+            response.write(JSON.stringify(scores[[query[1]]]));
+          } else {
+            response.writeHead(404, '{ Content-Type: application/json }');
+            response.write(
+              JSON.stringify({
+                message: 'Could not find scores for the provided name',
+                id: 'notFound',
+              }),
+            );
+          }
+        } else {
+          response.writeHead(400, '{ Content-Type: application/json }');
+          response.write(
+            JSON.stringify({
+              message: 'Invalid query parameter provided, expected name',
+              id: 'badRequest',
+            }),
+          );
+        }
+      }
     }
   } else if (request.method.toLowerCase() === 'post') {
     console.log(body);
