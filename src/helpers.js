@@ -79,6 +79,3 @@ export const loadFile = (request, response, filePath, mimeType) => {
     return stream;
   });
 };
-export const getParams = (url) => new Proxy(new URLSearchParams(url), {
-  get: (searchParams, prop) => searchParams.get(prop),
-});

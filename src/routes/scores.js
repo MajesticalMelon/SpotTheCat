@@ -1,5 +1,3 @@
-import { getParams } from '../helpers.js';
-
 const scores = {};
 
 const score = (request, response, body) => {
