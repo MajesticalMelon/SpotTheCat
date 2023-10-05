@@ -7,7 +7,7 @@ const score = (request, response, body) => {
   ) {
     if (request.method.toLowerCase() === 'get') {
       let query = request.url.split('?');
-      if (query.length === 0) {
+      if (query.length === 1) {
         response.writeHead(200, '{ Content-Type: application/json }');
         response.write(JSON.stringify(scores));
       } else {
