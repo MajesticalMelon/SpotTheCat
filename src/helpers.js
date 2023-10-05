@@ -54,7 +54,7 @@ export const loadFile = (request, response, filePath, mimeType) => {
       start = end - 1;
     }
 
-    const chunkSize = (end - start) + 1;
+    const chunkSize = end - start + 1;
 
     response.writeHead(206, {
       'Content-Range': `bytes ${start}-${end}/${total}`,
@@ -63,7 +63,10 @@ export const loadFile = (request, response, filePath, mimeType) => {
       'Content-Type': mimeType,
     });
 
-    const stream = fs.createReadStream(file, { start, end });
+    const stream = fs.createReadStream(file, {
+      start,
+      end,
+    });
 
     stream.on('open', () => {
       stream.pipe(response);

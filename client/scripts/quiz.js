@@ -51,7 +51,10 @@ const saveScore = async () => {
 };
 
 const getRandomFact = async () => {
-  const data = await fetch('https://catfact.ninja/fact?max_length=100', { method: 'GET', headers: { accept: 'application/json' } });
+  const data = await fetch('https://catfact.ninja/fact?max_length=100', {
+    method: 'GET',
+    headers: { accept: 'application/json' },
+  });
   return data.json();
 };
 
@@ -62,7 +65,10 @@ const getRandomQuestion = async () => {
     return;
   }
 
-  const data = await fetch('/question', { method: 'GET', headers: { Accept: 'application/json' } });
+  const data = await fetch('/question', {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+  });
   const json = await data.json();
 
   const images = await getRandomImages(json.order);

@@ -20,7 +20,9 @@ const getQuestion = (request, response) => {
   const index = Math.floor(Math.random() * availableIndices.length);
 
   response.writeHead(200, '{ Content-Type: application/json }');
-  response.write(JSON.stringify(questions[availableIndices[index]]));
+  if (request.method.toLowerCase() === 'get') {
+    response.write(JSON.stringify(questions[availableIndices[index]]));
+  }
   response.end();
 
   availableIndices.splice(index, 1);

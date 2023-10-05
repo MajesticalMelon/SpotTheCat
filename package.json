@@ -9,6 +9,13 @@
     "pretest": "eslint ./src --fix",
     "test": "echo \"Tests Complete!\""
   },
+  "prettier": {
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 2,
+    "trailingComma": "all",
+    "printWidth": 80
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MajesticalMelon/SpotTheCat.git"
@@ -20,18 +27,13 @@
   },
   "homepage": "https://github.com/MajesticalMelon/SpotTheCat#readme",
   "type": "module",
-  "prettier": {
-    "semi": true,
-    "printWidth": 80,
-    "singleQuote": true,
-    "tabWidth": 2
-  },
   "devDependencies": {
     "eslint": "^8.50.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-module-utils": "^2.8.0",
     "eslint-plugin-import": "^2.28.1",
-    "nodemon": "^3.0.1"
+    "nodemon": "^3.0.1",
+    "prettier": "^2.5.1"
   },
   "dependencies": {
     "querystring": "^0.2.1"

@@ -30,7 +30,14 @@ export const getResultsHTML = (request, response) => {
 };
 
 export const getNotFound = (request, response) => {
-  response.writeHead(404, { 'Content-Type': 'application/json' });
-  response.write(JSON.stringify({ id: 'notFound', message: 'The page you are looking for was not found' }));
+  response.writeHead(404, {
+    'Content-Type': 'application/json',
+  });
+  response.write(
+    JSON.stringify({
+      id: 'notFound',
+      message: 'The page you are looking for was not found',
+    }),
+  );
   response.end();
 };

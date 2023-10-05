@@ -1,13 +1,13 @@
-{ 
-  "extends": "airbnb-base",
+{
+  "extends": ["airbnb-base"],
   "rules": {
-    "no-underscore-dangle" : "off",
-	"no-plusplus": "off",
+    "no-underscore-dangle": "off",
+    "no-plusplus": "off",
     "import/extensions": "off",
     "linebreak-style": "off"
   },
   "env": {
     "browser": true,
     "es6": true
-  },
+  }
 }

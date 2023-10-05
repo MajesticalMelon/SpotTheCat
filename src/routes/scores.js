@@ -1,9 +1,14 @@
 const scores = {};
 
 const score = (request, response, body) => {
-  if (request.method.toLowerCase() === 'get' || request.method.toLowerCase() === 'head') {
+  if (
+    request.method.toLowerCase() === 'get'
+    || request.method.toLowerCase() === 'head'
+  ) {
     response.writeHead(200, '{ Content-Type: application/json }');
-    if (request.method.toLowerCase() === 'get') { response.write(JSON.stringify(scores)); }
+    if (request.method.toLowerCase() === 'get') {
+      response.write(JSON.stringify(scores));
+    }
   } else if (request.method.toLowerCase() === 'post') {
     console.log(body);
     const responseJSON = {
@@ -12,7 +17,9 @@ const score = (request, response, body) => {
 
     if (!body.name || !body.score) {
       responseJSON.id = 'missingParams';
-      response.writeHead(400, { 'Content-Type': 'application/json' });
+      response.writeHead(400, {
+        'Content-Type': 'application/json',
+      });
       response.write(JSON.stringify(responseJSON));
       response.end();
       return;
@@ -30,13 +37,17 @@ const score = (request, response, body) => {
 
     if (responseCode === 201) {
       responseJSON.messscore = 'Created Successfully';
-      response.writeHead(responseCode, { 'Content-Type': 'application/json' });
+      response.writeHead(responseCode, {
+        'Content-Type': 'application/json',
+      });
       response.write(JSON.stringify(responseJSON));
       response.end();
       return;
     }
 
-    response.writeHead(responseCode, { 'Content-Type': 'application/json' });
+    response.writeHead(responseCode, {
+      'Content-Type': 'application/json',
+    });
   }
   response.end();
 };
