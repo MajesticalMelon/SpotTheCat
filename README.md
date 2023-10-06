@@ -29,15 +29,15 @@ Return Type: JSON
 
 URL: /images/{path}
 Supported Methods: GET
-Description: Can GET the image at {path} relative to the client folder
+Description: Can GET the image at client/images/{path}
 Return Type: Image
 
 URL: /scripts/{path}
 Supported Methods: GET
-Description: Can GET the .js file at {path} relative to the client folder
+Description: Can GET the .js file at client/scripts/{path}
 Return Type: JS
 
 URL: /styles/{path}
 Supported Methods: GET
-Description: Can GET the .css file at {path} relative to the client folder
+Description: Can GET the .css file at client/styles/{path}
 Return Type: CSS
