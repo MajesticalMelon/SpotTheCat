@@ -2,7 +2,9 @@ let numberCorrect = 0;
 let numQuestions = 0;
 const MAX_QUESTIONS = 10;
 
-const currentName = document.location.search.split('=')[1];
+const params = document.location.search.split('&');
+const currentName = params[0].split('=')[1];
+const currentQuiz = params[1].split('=')[1];
 
 const getRandomImages = async (order) => {
   const numImagesPerAnimal = 3;
@@ -67,10 +69,13 @@ const getRandomQuestion = async () => {
     return;
   }
 
-  const data = await fetch('/question', {
-    method: 'GET',
-    headers: { Accept: 'application/json' },
-  });
+  const data = await fetch(
+    `/question${currentQuiz ? `?quiz=${currentQuiz}` : ''}`,
+    {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+    },
+  );
   const json = await data.json();
 
   const images = await getRandomImages(json.order);

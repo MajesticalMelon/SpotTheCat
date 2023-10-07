@@ -8,7 +8,7 @@ const enableContinue = () => {
     const button = document.getElementById('continue');
     button.disabled = false;
     button.onclick = () => {
-      window.open(`/quiz?name=${nameField.value}`, '_self');
+      window.open(`/quiz?name=${nameField.value}&quiz=owen`, '_self');
     };
   }
 };

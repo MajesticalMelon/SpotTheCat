@@ -13,6 +13,7 @@ const showScoreByName = async (name) => {
   });
   const json = await data.json();
 
+  allScoresList.innerHTML = '';
   if (data.status === 200) {
     nameHeader.innerText = json.name;
     score.innerText = `${json.score}/10`;
@@ -33,6 +34,7 @@ const showAllScores = async () => {
   nameHeader.innerText = '';
   score.innerText = '';
   title.innerText = 'Here are all the scores so far!';
+  allScoresList.innerHTML = '';
   Object.values(json).forEach((value) => {
     allScoresList.innerHTML += `
     <li style="display: flex; justify-content: space-between; align-items: center;">

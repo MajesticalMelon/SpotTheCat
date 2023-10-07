@@ -2,7 +2,7 @@ import { createServer } from 'http';
 import getCSS from './routes/styles.js';
 import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
-import getQuestion from './routes/questions.js';
+import question from './routes/questions.js';
 import getImage from './routes/images.js';
 import { parseBody } from './helpers.js';
 import score from './routes/scores.js';
@@ -40,7 +40,7 @@ const onRequest = (request, response) => {
       pageHandler.getResultsHTML(request, response);
       break;
     case '/question':
-      getQuestion(request, response);
+      parseBody(request, response, question);
       break;
     case '/score':
       parseBody(request, response, score);
