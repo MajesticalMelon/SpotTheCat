@@ -40,10 +40,12 @@ try {
 }
 
 export const getQuizNames = (request, response) => {
-  const quizzes = [''];
-  quizzes.push(...Object.keys(userQuestions));
   response.writeHead(200, '{ Content-Type: application/json }');
-  response.write(JSON.stringify(quizzes));
+  if (request.method.toLowerCase() === 'get') {
+    const quizzes = [''];
+    quizzes.push(...Object.keys(userQuestions));
+    response.write(JSON.stringify(quizzes));
+  }
   response.end();
 };
 
