@@ -50,14 +50,16 @@ const saveScore = async () => {
       'Content-Type': 'application/x-www-form-urlencoded',
       Accept: 'application/json',
     },
-    body: `name=${currentName}&score=${numberCorrect}`,
+    body: `quiz=${
+      currentQuiz || 'default'
+    }&name=${currentName}&score=${numberCorrect}`,
   });
 };
 
 const getRandomFact = async () => {
   const data = await fetch('https://catfact.ninja/fact?max_length=100', {
     method: 'GET',
-    headers: { accept: 'application/json' },
+    headers: { Accept: 'application/json' },
   });
   return data.json();
 };
@@ -65,7 +67,12 @@ const getRandomFact = async () => {
 const getRandomQuestion = async () => {
   if (numQuestions === MAX_QUESTIONS) {
     await saveScore();
-    window.open(`/results?name=${currentName}`, '_self');
+    window.open(
+      `/results?name=${currentName}${
+        currentQuiz ? `&quiz=${currentQuiz}` : ''
+      }`,
+      '_self',
+    );
     return;
   }
 

@@ -9,30 +9,49 @@ const score = (request, response, body) => {
       let query = request.url.split('?');
       if (query.length === 1) {
         response.writeHead(200, '{ Content-Type: application/json }');
-        response.write(JSON.stringify(scores));
+        response.write(JSON.stringify(scores.default));
       } else {
-        query = query[1].split('=');
-        if (query[0] === 'name') {
-          if (scores[query[1]]) {
+        const params = query[1].split('&');
+        query = params[0].split('=');
+        if (query[0] === 'quiz') {
+          const quiz = query[1];
+          if (params.length === 2) {
+            query = params[1].split('=');
+            if (query[0] === 'name' && scores[quiz]) {
+              const name = query[1];
+              if (scores[quiz][name]) {
+                response.writeHead(200, '{ Content-Type: application/json }');
+                response.write(JSON.stringify(scores[quiz][name]));
+              } else {
+                response.writeHead(404, '{ Content-Type: application/json }');
+                response.write(
+                  JSON.stringify({
+                    message: 'Could not find scores for the provided name',
+                    id: 'notFound',
+                  }),
+                );
+              }
+            } else {
+              response.writeHead(400, '{ Content-Type: application/json }');
+              response.write(
+                JSON.stringify({
+                  message: 'Invalid query parameter provided',
+                  id: 'badRequest',
+                }),
+              );
+            }
+          } else if (scores[quiz]) {
             response.writeHead(200, '{ Content-Type: application/json }');
-            response.write(JSON.stringify(scores[[query[1]]]));
+            response.write(JSON.stringify(scores[quiz]));
           } else {
             response.writeHead(404, '{ Content-Type: application/json }');
             response.write(
               JSON.stringify({
-                message: 'Could not find scores for the provided name',
+                message: 'Could not find scores for the provided quiz',
                 id: 'notFound',
               }),
             );
           }
-        } else {
-          response.writeHead(400, '{ Content-Type: application/json }');
-          response.write(
-            JSON.stringify({
-              message: 'Invalid query parameter provided, expected name',
-              id: 'badRequest',
-            }),
-          );
         }
       }
     }
@@ -52,18 +71,30 @@ const score = (request, response, body) => {
       return;
     }
 
-    let responseCode = 204;
-
-    if (!scores[body.name]) {
-      responseCode = 201;
-      scores[body.name] = {};
+    let quiz = 'default';
+    if (body.quiz) {
+      quiz = body.quiz;
     }
 
-    scores[body.name].name = body.name;
-    scores[body.name].score = body.score;
+    let responseCode = 204;
+
+    const quizName = quiz.split(' ').join('%20');
+    if (!scores[quizName]) {
+      responseCode = 201;
+      scores[quizName] = {};
+    }
+
+    const name = body.name.split(' ').join('%20');
+    if (!scores[quizName][name]) {
+      responseCode = 201;
+      scores[quizName][name] = {};
+    }
+
+    scores[quizName][name].name = body.name;
+    scores[quizName][name].score = body.score;
 
     if (responseCode === 201) {
-      responseJSON.messscore = 'Created Successfully';
+      responseJSON.message = 'Created Successfully';
       response.writeHead(responseCode, {
         'Content-Type': 'application/json',
       });

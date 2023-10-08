@@ -3,14 +3,19 @@ const score = document.getElementById('score');
 const title = document.getElementById('title');
 const allScoresButton = document.getElementById('btnAllScores');
 const allScoresList = document.getElementById('lsAllScores');
-const currentName = document.location.search.split('=')[1];
+const params = document.location.search.split('&');
+const currentName = params[0].split('=')[1];
+const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 let showAll = true;
 
 const showScoreByName = async (name) => {
-  const data = await fetch(`/score?name=${name}`, {
-    method: 'get',
-    headers: { accept: 'application/json' },
-  });
+  const data = await fetch(
+    `/score?quiz=${currentQuiz || 'default'}&name=${name}`,
+    {
+      method: 'get',
+      headers: { Accept: 'application/json' },
+    },
+  );
   const json = await data.json();
 
   allScoresList.innerHTML = '';
@@ -24,10 +29,13 @@ const showScoreByName = async (name) => {
 };
 
 const showAllScores = async () => {
-  const data = await fetch('/score', {
-    method: 'get',
-    headers: { accept: 'application/json' },
-  });
+  const data = await fetch(
+    `/score${currentQuiz ? `?quiz=${currentQuiz}` : ''}`,
+    {
+      method: 'get',
+      headers: { Accept: 'application/json' },
+    },
+  );
 
   const json = await data.json();
 

@@ -2,7 +2,7 @@ import { createServer } from 'http';
 import getCSS from './routes/styles.js';
 import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
-import question from './routes/questions.js';
+import { question, getQuizNames } from './routes/questions.js';
 import getImage from './routes/images.js';
 import { parseBody } from './helpers.js';
 import score from './routes/scores.js';
@@ -30,6 +30,9 @@ const onRequest = (request, response) => {
     case '/':
       pageHandler.getIndexHTML(request, response);
       break;
+    case '/create':
+      pageHandler.getCreateHTML(request, response);
+      break;
     case '/rules':
       pageHandler.getRulesHTML(request, response);
       break;
@@ -38,6 +41,9 @@ const onRequest = (request, response) => {
       break;
     case '/results':
       pageHandler.getResultsHTML(request, response);
+      break;
+    case '/quizzes':
+      getQuizNames(request, response);
       break;
     case '/question':
       parseBody(request, response, question);

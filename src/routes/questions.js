@@ -39,8 +39,16 @@ try {
   defaultQuestions = questionsFile;
 }
 
+export const getQuizNames = (request, response) => {
+  const quizzes = [''];
+  quizzes.push(...Object.keys(userQuestions));
+  response.writeHead(200, '{ Content-Type: application/json }');
+  response.write(JSON.stringify(quizzes));
+  response.end();
+};
+
 // Returns a random question from the chosen list of questions
-const question = (request, response, body) => {
+export const question = (request, response, body) => {
   // get questions
   if (
     request.method.toLowerCase() === 'get'
@@ -63,9 +71,9 @@ const question = (request, response, body) => {
         query = query[1].split('=');
         if (query[0] === 'quiz') {
           if (userQuestions[query[1]]) {
-            const questions = userQuestions[[query[1]]];
+            const questions = userQuestions[query[1]];
             if (availableIndices.length === 0) {
-              availableIndices = defaultQuestions.map((_, i) => i);
+              availableIndices = questions.map((_, i) => i);
             }
 
             const index = Math.floor(Math.random() * availableIndices.length);
@@ -91,11 +99,47 @@ const question = (request, response, body) => {
         }
       }
     }
-    response.end();
   } else if (request.method.toLowerCase() === 'post') {
-    // Add questions to quizName
     console.log(body);
-  }
-};
+    const responseJSON = {
+      message: 'Quiz name is required.',
+    };
 
-export default question;
+    if (!body.quiz) {
+      responseJSON.id = 'missingParams';
+      response.writeHead(400, {
+        'Content-Type': 'application/json',
+      });
+      response.write(JSON.stringify(responseJSON));
+      response.end();
+      return;
+    }
+
+    let responseCode = 204;
+
+    const quizName = body.quiz.split(' ').join('%20');
+
+    if (!userQuestions[quizName]) {
+      responseCode = 201;
+      userQuestions[quizName] = [];
+    }
+
+    userQuestions[quizName] = JSON.parse(body.questions);
+
+    if (responseCode === 201) {
+      responseJSON.messsage = 'Created Successfully';
+      response.writeHead(responseCode, {
+        'Content-Type': 'application/json',
+      });
+      response.write(JSON.stringify(responseJSON));
+      response.end();
+      return;
+    }
+
+    response.writeHead(responseCode, {
+      'Content-Type': 'application/json',
+    });
+  }
+
+  response.end();
+};
