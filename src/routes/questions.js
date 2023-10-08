@@ -92,6 +92,9 @@ const question = (request, response, body) => {
       }
     }
     response.end();
+  } else if (request.method.toLowerCase() === 'post') {
+    // Add questions to quizName
+    console.log(body);
   }
 };
 

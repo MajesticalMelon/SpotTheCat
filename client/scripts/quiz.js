@@ -4,7 +4,7 @@ const MAX_QUESTIONS = 10;
 
 const params = document.location.search.split('&');
 const currentName = params[0].split('=')[1];
-const currentQuiz = params[1].split('=')[1];
+const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 
 const getRandomImages = async (order) => {
   const numImagesPerAnimal = 3;
