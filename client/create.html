@@ -8,12 +8,18 @@
     <script defer src="./scripts/create.js"></script>
   </head>
   <body>
+    <h1>Create a Quiz!</h1>
+    <p>
+      Create a set of of questions that will be randomly picked from. Each quiz
+      is only 10 questions long, but you can add as many as you'd like!
+    </p>
     <input id="name" type="text" placeholder="Quiz Name" />
     <div id="inputContainer">
       <p>Prompt:</p>
       <input id="prompt" type="text" placeholder="What is your question?" />
     </div>
     <div id="imageSelectorContainer">
+      <p>From left to right, which cat do you want to be shown?</p>
       <select id="image1">
         <option value="l" selected>Leopard</option>
         <option value="c">Cheetah</option>
@@ -31,6 +37,7 @@
       </select>
     </div>
     <div id="answerContainer">
+      <p>Which of the above cats is the correct answer?</p>
       <select id="answer">
         <option value="image1">Leopard</option>
         <option value="image2">Cheetah</option>
