@@ -102,7 +102,6 @@ const getRandomQuestion = async () => {
     const image = document.createElement('img');
     image.src = path;
     image.alt = 'cat image';
-    console.log(json.answer.index, i);
     if (+i === +json.answer.index) {
       image.onclick = async () => {
         numQuestions++;

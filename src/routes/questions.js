@@ -1,4 +1,5 @@
 import * as fs from 'fs';
+import { getQueryParams } from '../helpers.js';
 
 const questionsFile = fs.readFileSync('src/json/questions.json', 'utf8');
 let defaultQuestions = [];
@@ -58,8 +59,8 @@ export const question = (request, response, body) => {
   ) {
     response.writeHead(200, '{ Content-Type: application/json }');
     if (request.method.toLowerCase() === 'get') {
-      let query = request.url.split('?');
-      if (query.length === 1) {
+      const params = getQueryParams(request.url);
+      if (params === undefined) {
         if (availableIndices.length === 0) {
           availableIndices = defaultQuestions.map((_, i) => i);
         }
@@ -69,40 +70,36 @@ export const question = (request, response, body) => {
           JSON.stringify(defaultQuestions[availableIndices[index]]),
         );
         availableIndices.splice(index, 1);
-      } else {
-        query = query[1].split('=');
-        if (query[0] === 'quiz') {
-          if (userQuestions[query[1]]) {
-            const questions = userQuestions[query[1]];
-            if (availableIndices.length === 0) {
-              availableIndices = questions.map((_, i) => i);
-            }
-
-            const index = Math.floor(Math.random() * availableIndices.length);
-            response.write(JSON.stringify(questions[availableIndices[index]]));
-            availableIndices.splice(index, 1);
-          } else {
-            response.writeHead(404, '{ Content-Type: application/json }');
-            response.write(
-              JSON.stringify({
-                message: 'Could not find questions for the provided name',
-                id: 'notFound',
-              }),
-            );
+      } else if (params.quiz) {
+        if (userQuestions[params.quiz]) {
+          const questions = userQuestions[params.quiz];
+          if (availableIndices.length === 0) {
+            availableIndices = questions.map((_, i) => i);
           }
+
+          const index = Math.floor(Math.random() * availableIndices.length);
+          response.write(JSON.stringify(questions[availableIndices[index]]));
+          availableIndices.splice(index, 1);
         } else {
-          response.writeHead(400, '{ Content-Type: application/json }');
+          response.writeHead(404, '{ Content-Type: application/json }');
           response.write(
             JSON.stringify({
-              message: 'Invalid query parameter provided, expected name',
-              id: 'badRequest',
+              message: 'Could not find questions for the provided name',
+              id: 'notFound',
             }),
           );
         }
+      } else {
+        response.writeHead(400, '{ Content-Type: application/json }');
+        response.write(
+          JSON.stringify({
+            message: 'Invalid query parameter provided, expected name',
+            id: 'badRequest',
+          }),
+        );
       }
     }
   } else if (request.method.toLowerCase() === 'post') {
-    console.log(body);
     const responseJSON = {
       message: 'Quiz name is required.',
     };

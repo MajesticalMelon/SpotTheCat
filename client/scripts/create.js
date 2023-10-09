@@ -20,8 +20,6 @@ nameElement.onchange = () => {
 
 promptElement.onchange = () => {
   prompt = promptElement.value;
-  console.log(prompt);
-
   addButton.disabled = prompt === '';
 };
 
@@ -94,7 +92,6 @@ image3Element.onchange = () => {
 answerElement.onchange = () => {
   answer[0] = +answerElement.value.charAt(answerElement.value.length - 1) - 1;
   answer[1] = document.getElementById(answerElement.value).value;
-  console.log(answer);
 };
 
 const allQuestions = [];
@@ -110,7 +107,6 @@ addButton.onclick = () => {
   });
   promptElement.value = '';
   addButton.disabled = true;
-  console.log(allQuestions);
   submitButton.disabled = false;
 };
 

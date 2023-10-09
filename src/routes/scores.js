@@ -1,3 +1,5 @@
+import { getQueryParams } from '../helpers.js';
+
 const scores = {};
 
 const score = (request, response, body) => {
@@ -6,22 +8,20 @@ const score = (request, response, body) => {
     || request.method.toLowerCase() === 'head'
   ) {
     if (request.method.toLowerCase() === 'get') {
-      let query = request.url.split('?');
+      const query = request.url.split('?');
       if (query.length === 1) {
         response.writeHead(200, '{ Content-Type: application/json }');
         response.write(JSON.stringify(scores.default));
       } else {
-        const params = query[1].split('&');
-        query = params[0].split('=');
-        if (query[0] === 'quiz') {
-          const quiz = query[1];
-          if (params.length === 2) {
-            query = params[1].split('=');
-            if (query[0] === 'name' && scores[quiz]) {
-              const name = query[1];
-              if (scores[quiz][name]) {
+        const params = getQueryParams(request.url);
+        if (params.quiz) {
+          if (params.name) {
+            if (scores[params.quiz]) {
+              if (scores[params.quiz][params.name]) {
                 response.writeHead(200, '{ Content-Type: application/json }');
-                response.write(JSON.stringify(scores[quiz][name]));
+                response.write(
+                  JSON.stringify(scores[params.quiz][params.name]),
+                );
               } else {
                 response.writeHead(404, '{ Content-Type: application/json }');
                 response.write(
@@ -40,9 +40,9 @@ const score = (request, response, body) => {
                 }),
               );
             }
-          } else if (scores[quiz]) {
+          } else if (scores[params.quiz]) {
             response.writeHead(200, '{ Content-Type: application/json }');
-            response.write(JSON.stringify(scores[quiz]));
+            response.write(JSON.stringify(scores[params.quiz]));
           } else {
             response.writeHead(404, '{ Content-Type: application/json }');
             response.write(
@@ -56,7 +56,6 @@ const score = (request, response, body) => {
       }
     }
   } else if (request.method.toLowerCase() === 'post') {
-    console.log(body);
     const responseJSON = {
       message: 'Name and score are both required.',
     };

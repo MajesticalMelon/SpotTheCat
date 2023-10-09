@@ -79,3 +79,19 @@ export const loadFile = (request, response, filePath, mimeType) => {
     return stream;
   });
 };
+
+export const getQueryParams = (url) => {
+  let paramsString = url.split('?');
+  if (paramsString.length === 1) {
+    return undefined;
+  }
+
+  paramsString = paramsString[1].split('&');
+  const paramsMap = {};
+  paramsString.forEach((p) => {
+    const [param, value] = p.split('=');
+    paramsMap[param] = value;
+  });
+
+  return paramsMap;
+};
