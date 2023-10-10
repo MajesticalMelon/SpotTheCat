@@ -1,0 +1,50 @@
+:root {
+  --white: #fefffe;
+  --black: #252627;
+  --green: #475c2b;
+  --purple: #a288a6;
+  --red: #a288a6;
+}
+
+html {
+  font-family: 'Manrope', sans-serif;
+  font-size: 36pt;
+}
+
+body {
+  margin: 0;
+}
+
+button {
+  color: var(--white);
+  background-color: var(--black);
+  font-size: 18pt;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.2rem 0.3rem;
+  transition: all 0.2s;
+
+  &:hover:not(:disabled) {
+    scale: 1.02;
+    filter: brightness(130%);
+  }
+
+  &:active:not(:disabled) {
+    scale: 0.98;
+    filter: brightness(110%);
+  }
+
+  &:disabled {
+    filter: opacity(0.7);
+    cursor: not-allowed;
+  }
+}
+
+select {
+  color: var(--white);
+  background-color: var(--black);
+  border: 2px solid var(--green);
+  border-radius: 5px;
+  padding: 2px;
+}

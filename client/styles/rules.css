@@ -1,6 +1,7 @@
 html {
-  font-family: 'Manrope', sans-serif;
   font-size: 18pt;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 body {
@@ -8,19 +9,51 @@ body {
 }
 
 main {
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+#rules {
+  color: var(--white);
+  background-color: var(--green);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: -2rem;
+  margin-bottom: 3rem;
+  padding: 1rem 3rem;
+  border-radius: 5px;
+}
+
+#rules h1 {
+  line-height: 0.5rem;
+}
+
+#rules p {
+  line-height: 0.3rem;
+}
+
+#rules h2 {
+  line-height: 0.3rem;
+}
+
+#inputsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #quizContainer {
   display: flex;
-  font-size: 14pt;
+  font-size: 16pt;
   align-items: center;
   margin: 0rem;
+}
+
+select {
+  font-size: 11pt;
 }
 
 #quiz {
@@ -36,6 +69,7 @@ main {
   align-items: center;
   margin: 1rem;
   margin-top: 0;
+  margin-bottom: 0;
 }
 
 #nameField {
@@ -44,6 +78,11 @@ main {
 
 #note {
   margin: 0;
-  font-size: 12pt;
+  font-size: 9pt;
   text-align: center;
+}
+
+button {
+  background-color: var(--green);
+  color: var(--white);
 }

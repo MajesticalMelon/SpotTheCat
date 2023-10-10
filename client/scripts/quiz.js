@@ -101,7 +101,7 @@ const getRandomQuestion = async () => {
 
   factContainer.innerText = fact.fact;
 
-  prompt.innerText = json.prompt;
+  prompt.innerText = `${numQuestions + 1}. ${json.prompt}`;
 
   imageContainer.innerHTML = '';
   Object.values(images).forEach((path, i) => {
@@ -123,7 +123,7 @@ const getRandomQuestion = async () => {
     imageContainer.appendChild(image);
   });
 
-  feedback.innerText = `${numberCorrect}/${numQuestions}`;
+  feedback.innerText = `${numberCorrect}/${MAX_QUESTIONS}`;
 };
 
 getRandomQuestion();
