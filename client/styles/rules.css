@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  margin: 0;
+  margin: 0.5rem;
 }
 
 main {
@@ -14,4 +14,36 @@ main {
   justify-content: center;
   align-items: center;
   margin-top: -2rem;
+}
+
+#quizContainer {
+  display: flex;
+  font-size: 14pt;
+  align-items: center;
+  margin: 0rem;
+}
+
+#quiz {
+  margin-left: 12px;
+  height: fit-content;
+}
+
+#nameContainer {
+  width: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  margin-top: 0;
+}
+
+#nameField {
+  width: 100%;
+}
+
+#note {
+  margin: 0;
+  font-size: 12pt;
+  text-align: center;
 }

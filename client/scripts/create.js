@@ -18,11 +18,13 @@ nameElement.onchange = () => {
   quizName = nameElement.value;
 };
 
+// Allow users to add a question once a prompt has been inputted
 promptElement.onchange = () => {
   prompt = promptElement.value;
   addButton.disabled = prompt === '';
 };
 
+// Modify answer dropdown based on the selected image types
 image1Element.onchange = () => {
   image1 = image1Element.value;
   answerElement.childNodes.forEach((c) => {
@@ -89,6 +91,7 @@ image3Element.onchange = () => {
   });
 };
 
+// Parse answer dropdown into the needed format
 answerElement.onchange = () => {
   answer[0] = +answerElement.value.charAt(answerElement.value.length - 1) - 1;
   answer[1] = document.getElementById(answerElement.value).value;

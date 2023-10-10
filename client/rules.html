@@ -27,8 +27,18 @@
         see your overall score at the end.
       </p>
       <h2>Good Luck!</h2>
-      <select id="quiz"></select>
-      <input type="text" id="nameField" />
+      <div id="quizContainer">
+        <p>Select a Quiz to try:</p>
+        <select id="quiz"></select>
+      </div>
+      <div id="nameContainer">
+        <input
+          type="text"
+          id="nameField"
+          placeholder="Please enter your username"
+        />
+        <p id="note"><i>NOTE: All users will be able to see this name</i></p>
+      </div>
       <button id="continue" disabled>Start Quiz!</button>
     </main>
   </body>

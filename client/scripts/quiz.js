@@ -1,11 +1,13 @@
 let numberCorrect = 0;
 let numQuestions = 0;
-const MAX_QUESTIONS = 10;
+const MAX_QUESTIONS = 10; // Capping at 10 questions for now
 
+// Grab url params
 const params = document.location.search.split('&');
 const currentName = params[0].split('=')[1];
 const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 
+// Grab a random image based on the question
 const getRandomImages = async (order) => {
   const numImagesPerAnimal = 3;
   const images = {};
@@ -21,6 +23,7 @@ const getRandomImages = async (order) => {
     }
   }
 
+  // Image filenames are indexed so they can be easily randomized
   Object.keys(images).forEach((key) => {
     let path = '';
     switch (key.charAt(0)) {
@@ -56,6 +59,7 @@ const saveScore = async () => {
   });
 };
 
+// Query the CatFact API
 const getRandomFact = async () => {
   const data = await fetch('https://catfact.ninja/fact?max_length=100', {
     method: 'GET',
@@ -64,6 +68,8 @@ const getRandomFact = async () => {
   return data.json();
 };
 
+// Gets a random question and displays that data to the user
+// will also save the user's score and open the results page once out of questions
 const getRandomQuestion = async () => {
   if (numQuestions === MAX_QUESTIONS) {
     await saveScore();
@@ -120,5 +126,4 @@ const getRandomQuestion = async () => {
   feedback.innerText = `${numberCorrect}/${numQuestions}`;
 };
 
-document.querySelector('button').onclick = getRandomQuestion;
 getRandomQuestion();

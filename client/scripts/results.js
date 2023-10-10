@@ -3,6 +3,8 @@ const score = document.getElementById('score');
 const title = document.getElementById('title');
 const allScoresButton = document.getElementById('btnAllScores');
 const allScoresList = document.getElementById('lsAllScores');
+
+// Grab URL params
 const params = document.location.search.split('&');
 const currentName = params[0].split('=')[1];
 const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;

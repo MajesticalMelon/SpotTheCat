@@ -18,6 +18,8 @@ fetch('/quizzes', {
   });
 });
 
+// Don't let the user start the quiz until they input a name
+// and the timeout has finished
 const enableContinue = () => {
   if (timerEnd && nameInputted) {
     const button = document.getElementById('continue');
@@ -38,6 +40,7 @@ nameField.onchange = () => {
   enableContinue();
 };
 
+// Wait two seconds until the user can start the quiz
 setTimeout(() => {
   timerEnd = true;
   enableContinue();

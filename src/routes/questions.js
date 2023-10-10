@@ -116,8 +116,8 @@ export const question = (request, response, body) => {
 
     let responseCode = 204;
 
+    // Parse spaces into a url friendly format
     const quizName = body.quiz.split(' ').join('%20');
-
     if (!userQuestions[quizName]) {
       responseCode = 201;
       userQuestions[quizName] = [];
