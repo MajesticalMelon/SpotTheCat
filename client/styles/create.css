@@ -1,0 +1,94 @@
+:root {
+  font-size: 18pt;
+  background-color: var(--purple);
+  color: var(--black);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+p {
+  line-height: 1rem;
+}
+
+#createContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  color: var(--white);
+  background-color: var(--black);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+#numQuestions {
+  position: absolute;
+  top: -15px;
+  left: 15px;
+}
+
+#desc {
+  width: 60vw;
+  text-align: center;
+}
+
+#name {
+  font-size: 18pt;
+}
+
+#inputContainer {
+  display: flex;
+  align-items: center;
+}
+
+#prompt {
+  margin-top: 5px;
+  margin-left: 8px;
+  height: min-content;
+  font-size: 13pt;
+}
+
+#selectors {
+  display: flex;
+  justify-content: space-around;
+}
+
+select {
+  font-size: 12pt;
+}
+
+#selectors div {
+  display: flex;
+  align-items: center;
+}
+
+#selectors select {
+  margin-left: 8px;
+}
+
+#answerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+#addButton {
+  background-color: var(--green);
+}

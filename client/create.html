@@ -18,42 +18,58 @@
   </head>
   <body>
     <h1>Create a Quiz!</h1>
-    <p>
-      Create a set of of questions that will be randomly picked from. Each quiz
-      is only 10 questions long, but you can add as many as you'd like!
+    <p id="desc">
+      Create a question set with randomly chosen images of each selected cat.
+      These questions will also be randomly chosen when someone takes your quiz!
     </p>
-    <input id="name" type="text" placeholder="Quiz Name" />
-    <div id="inputContainer">
-      <p>Prompt:</p>
-      <input id="prompt" type="text" placeholder="What is your question?" />
+    <div id="createContainer">
+      <p id="numQuestions">Q1</p>
+      <input id="name" type="text" placeholder="Quiz Name" />
+      <div id="inputContainer">
+        <p>Prompt:</p>
+        <input id="prompt" type="text" placeholder="What is your question?" />
+      </div>
+      <div id="imageSelectorContainer">
+        <p>From left to right, which cat do you want to be shown?</p>
+        <div id="selectors">
+          <div>
+            #1:
+            <select id="image1">
+              <option value="l" selected>Leopard</option>
+              <option value="c">Cheetah</option>
+              <option value="j">Jaguar</option>
+            </select>
+          </div>
+          <div>
+            #2:
+            <select id="image2">
+              <option value="l">Leopard</option>
+              <option value="c" selected>Cheetah</option>
+              <option value="j">Jaguar</option>
+            </select>
+          </div>
+          <div>
+            #3:
+            <select id="image3">
+              <option value="l">Leopard</option>
+              <option value="c">Cheetah</option>
+              <option value="j" selected>Jaguar</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div id="answerContainer">
+        <p>Which of the above cats is the correct answer?</p>
+        <select id="answer">
+          <option value="image1">Leopard #1</option>
+          <option value="image2">Cheetah #2</option>
+          <option value="image3">Jaguar #3</option>
+        </select>
+      </div>
     </div>
-    <div id="imageSelectorContainer">
-      <p>From left to right, which cat do you want to be shown?</p>
-      <select id="image1">
-        <option value="l" selected>Leopard</option>
-        <option value="c">Cheetah</option>
-        <option value="j">Jaguar</option>
-      </select>
-      <select id="image2">
-        <option value="l">Leopard</option>
-        <option value="c" selected>Cheetah</option>
-        <option value="j">Jaguar</option>
-      </select>
-      <select id="image3">
-        <option value="l">Leopard</option>
-        <option value="c">Cheetah</option>
-        <option value="j" selected>Jaguar</option>
-      </select>
+    <div id="buttonContainer">
+      <button id="addButton" disabled>Add Question</button>
+      <button id="submitButton" disabled>Submit Quiz</button>
     </div>
-    <div id="answerContainer">
-      <p>Which of the above cats is the correct answer?</p>
-      <select id="answer">
-        <option value="image1">Leopard</option>
-        <option value="image2">Cheetah</option>
-        <option value="image3">Jaguar</option>
-      </select>
-    </div>
-    <button id="addButton" disabled>Add Question</button>
-    <button id="submitButton" disabled>Submit Quiz</button>
   </body>
 </html>

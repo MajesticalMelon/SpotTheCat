@@ -3,12 +3,17 @@ const score = document.getElementById('score');
 const title = document.getElementById('title');
 const allScoresButton = document.getElementById('btnAllScores');
 const allScoresList = document.getElementById('lsAllScores');
+const btnHome = document.getElementById('btnHome');
+const leaderboardText = document.getElementById('leaderboard');
 
 // Grab URL params
 const params = document.location.search.split('&');
 const currentName = params[0].split('=')[1];
 const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
-let showAll = true;
+
+btnHome.onclick = () => {
+  window.open('/', '_self');
+};
 
 const showScoreByName = async (name) => {
   const data = await fetch(
@@ -41,14 +46,17 @@ const showAllScores = async () => {
 
   const json = await data.json();
 
-  nameHeader.innerText = '';
-  score.innerText = '';
   title.innerText = 'Here are all the scores so far!';
   allScoresList.innerHTML = '';
-  Object.values(json).forEach((value) => {
+  const values = Object.values(json);
+  const sorted = values.sort((valueA, valueB) => valueA.score - valueB.score);
+  console.log(sorted);
+  sorted.forEach((value) => {
     allScoresList.innerHTML += `
-    <li style="display: flex; justify-content: space-between; align-items: center;">
-      <h2>${value.name}: </h2><p> ${value.score}</p>
+    <li>
+      <div>
+        <h4>${value.name}</h2><p> ${value.score}</p>
+      </div
     </li>
     `;
   });
@@ -56,13 +64,9 @@ const showAllScores = async () => {
 };
 
 allScoresButton.onclick = async () => {
-  if (showAll) {
-    showAll = false;
-    await showAllScores();
-  } else {
-    showAll = true;
-    await showScoreByName(currentName);
-  }
+  await showAllScores();
+  allScoresButton.style.display = 'none';
+  leaderboardText.style.display = 'block';
 };
 
 window.onload = async () => {

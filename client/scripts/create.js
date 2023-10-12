@@ -6,6 +6,9 @@ const image3Element = document.getElementById('image3');
 const answerElement = document.getElementById('answer');
 const addButton = document.getElementById('addButton');
 const submitButton = document.getElementById('submitButton');
+const numQuestions = document.getElementById('numQuestions');
+
+let num = 0;
 
 let quizName = '';
 let prompt = '';
@@ -32,13 +35,13 @@ image1Element.onchange = () => {
     if (c.value === 'image1') {
       switch (image1) {
         case 'l':
-          child.innerText = 'Leopard';
+          child.innerText = 'Leopard #1';
           break;
         case 'c':
-          child.innerText = 'Cheetah';
+          child.innerText = 'Cheetah #1';
           break;
         case 'j':
-          child.innerText = 'Jaguar';
+          child.innerText = 'Jaguar #1';
           break;
         default:
           break;
@@ -54,13 +57,13 @@ image2Element.onchange = () => {
     if (c.value === 'image2') {
       switch (image2) {
         case 'l':
-          child.innerText = 'Leopard';
+          child.innerText = 'Leopard #2';
           break;
         case 'c':
-          child.innerText = 'Cheetah';
+          child.innerText = 'Cheetah #2';
           break;
         case 'j':
-          child.innerText = 'Jaguar';
+          child.innerText = 'Jaguar #2';
           break;
         default:
           break;
@@ -76,13 +79,13 @@ image3Element.onchange = () => {
     if (c.value === 'image3') {
       switch (image3) {
         case 'l':
-          child.innerText = 'Leopard';
+          child.innerText = 'Leopard #3';
           break;
         case 'c':
-          child.innerText = 'Cheetah';
+          child.innerText = 'Cheetah #3';
           break;
         case 'j':
-          child.innerText = 'Jaguar';
+          child.innerText = 'Jaguar #3';
           break;
         default:
           break;
@@ -111,6 +114,8 @@ addButton.onclick = () => {
   promptElement.value = '';
   addButton.disabled = true;
   submitButton.disabled = false;
+  num++;
+  numQuestions.innerText = `Q${num + 1}`;
 };
 
 submitButton.onclick = async () => {

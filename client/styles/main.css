@@ -42,9 +42,16 @@ button {
 }
 
 select {
-  color: var(--white);
-  background-color: var(--black);
+  color: var(--black);
+  background-color: var(--white);
   border: 2px solid var(--green);
   border-radius: 5px;
   padding: 2px;
+}
+
+input[type='text'] {
+  color: var(--black);
+  background-color: var(--white);
+  border-radius: 5px;
+  border: 2px solid var(--green);
 }

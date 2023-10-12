@@ -3,34 +3,7 @@ import { getQueryParams } from '../helpers.js';
 
 const questionsFile = fs.readFileSync('src/json/questions.json', 'utf8');
 let defaultQuestions = [];
-const userQuestions = {
-  owen: [
-    {
-      prompt: 'Which one is a leopard? Owen',
-      order: 'lcj',
-      answer: {
-        animal: 'l',
-        index: '0',
-      },
-    },
-    {
-      prompt: 'Which one is a cheetah? Owen',
-      order: 'lcj',
-      answer: {
-        animal: 'c',
-        index: '1',
-      },
-    },
-    {
-      prompt: 'Which one is a jaguar? Owen',
-      order: 'lcj',
-      answer: {
-        animal: 'j',
-        index: '2',
-      },
-    },
-  ],
-};
+const userQuestions = {};
 let availableIndices = [];
 
 try {
