@@ -1,5 +1,7 @@
 html {
   font-size: 16pt;
+  background-color: var(--black);
+  color: var(--white);
 }
 
 body {
@@ -7,7 +9,10 @@ body {
   flex-direction: column;
   align-items: center;
   width: 100vw;
-  color: var(--black);
+}
+
+button {
+  background-color: var(--brown);
 }
 
 #userScore {
@@ -15,7 +20,7 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 20vw;
-  border-bottom: 1px solid var(--black);
+  border-bottom: 1px solid var(--orange);
   margin-bottom: 1rem;
 }
 

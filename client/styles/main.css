@@ -1,9 +1,10 @@
 :root {
   --white: #fefffe;
   --black: #252627;
-  --green: #475c2b;
-  --purple: #a288a6;
-  --red: #a288a6;
+  --black60: #161616;
+  --brown: #934b00;
+  --purple: #847996;
+  --orange: #bb6b00;
 }
 
 html {
@@ -17,7 +18,7 @@ body {
 
 button {
   color: var(--white);
-  background-color: var(--black);
+  background-color: var(--brown);
   font-size: 18pt;
   border: none;
   border-radius: 5px;
@@ -44,7 +45,7 @@ button {
 select {
   color: var(--black);
   background-color: var(--white);
-  border: 2px solid var(--green);
+  border: 2px solid var(--brown);
   border-radius: 5px;
   padding: 2px;
 }
@@ -53,5 +54,5 @@ input[type='text'] {
   color: var(--black);
   background-color: var(--white);
   border-radius: 5px;
-  border: 2px solid var(--green);
+  border: 2px solid var(--brown);
 }

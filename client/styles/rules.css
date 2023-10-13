@@ -1,7 +1,10 @@
 html {
   font-size: 18pt;
-  background-color: var(--black);
   color: var(--white);
+  background-image: url('./../images/savanna.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 body {
@@ -16,8 +19,7 @@ main {
 }
 
 #rules {
-  color: var(--white);
-  background-color: var(--green);
+  color: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,6 +45,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
+  backdrop-filter: blur(1px);
+  padding: 1rem 2rem;
+  margin: -3rem;
 }
 
 #quizContainer {
@@ -83,6 +89,10 @@ select {
 }
 
 button {
-  background-color: var(--green);
+  background-color: var(--brown);
   color: var(--white);
+}
+
+input[type='text'] {
+  font-size: 14pt;
 }

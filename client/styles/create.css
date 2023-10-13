@@ -1,7 +1,10 @@
 :root {
   font-size: 18pt;
-  background-color: var(--purple);
-  color: var(--black);
+  background-color: var(--black60);
+  color: var(--white);
+  background-image: url('./../images/cat_background.jpg');
+  background-size: cover;
+  background-position: center center;
 }
 
 body {
@@ -23,17 +26,16 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  backdrop-filter: blur(2px);
   color: var(--white);
-  background-color: var(--black);
   padding: 1rem;
   border-radius: 8px;
 }
 
 #numQuestions {
   position: absolute;
-  top: -15px;
-  left: 15px;
+  top: 0px;
+  left: 30px;
 }
 
 #desc {
@@ -90,5 +92,5 @@ select {
 }
 
 #addButton {
-  background-color: var(--green);
+  background-color: var(--brown);
 }

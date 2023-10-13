@@ -1,26 +1,50 @@
 [
-    {
-        "prompt": "Which one is a leopard?",
-        "order": "lcj",
-        "answer": {
-            "animal": "l", 
-            "index": "0"
-        }
-    },
-    {
-        "prompt": "Which one is a cheetah?",
-        "order": "lcj",
-        "answer": {
-            "animal": "c", 
-            "index": "1"
-        }
-    },
-    {
-        "prompt": "Which one is a jaguar?",
-        "order": "lcj",
-        "answer": {
-            "animal": "j", 
-            "index": "2"
-        }
+  {
+    "prompt": "Which one is a leopard?",
+    "order": "clj",
+    "answer": {
+      "animal": "l",
+      "index": "1"
     }
+  },
+  {
+    "prompt": "Which one is a cheetah?",
+    "order": "jlc",
+    "answer": {
+      "animal": "c",
+      "index": "2"
+    }
+  },
+  {
+    "prompt": "Which one is a jaguar?",
+    "order": "ljc",
+    "answer": {
+      "animal": "j",
+      "index": "1"
+    }
+  },
+  {
+    "prompt": "Which one is a leopard?",
+    "order": "jcl",
+    "answer": {
+      "animal": "l",
+      "index": "2"
+    }
+  },
+  {
+    "prompt": "Which one is a cheetah?",
+    "order": "cjl",
+    "answer": {
+      "animal": "c",
+      "index": "0"
+    }
+  },
+  {
+    "prompt": "Which one is a jaguar?",
+    "order": "lcj",
+    "answer": {
+      "animal": "j",
+      "index": "2"
+    }
+  }
 ]

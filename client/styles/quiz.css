@@ -23,20 +23,33 @@ h1 {
   align-items: center;
 }
 
+#imgDiv {
+  background-color: var(--black60);
+  border: 5px solid var(--black60);
+  border-bottom: 0px solid var(--black60);
+  border-radius: 8px;
+  margin: 1rem;
+  transition: all 0.3s;
+
+  &:active {
+    margin: calc(1rem + 5px);
+  }
+}
+
 img {
+  filter: brightness(60%);
+  z-index: 2;
   object-fit: cover;
   width: 300px;
   height: 300px;
-  margin: 1rem;
-  border: 5px solid var(--black);
   border-radius: 5px;
-  filter: brightness(60%);
+
   cursor: pointer;
   transition: all 0.3s;
   background-image: url('./../images/spinner.gif');
   background-position: center center;
   background-repeat: no-repeat;
-  background-size: 10%;
+  background-size: 15%;
 
   &:hover {
     filter: brightness(100%);
@@ -45,6 +58,5 @@ img {
   &:active {
     width: 290px;
     height: 290px;
-    margin: calc(1rem + 5px);
   }
 }

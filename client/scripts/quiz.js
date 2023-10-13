@@ -105,6 +105,8 @@ const getRandomQuestion = async () => {
 
   imageContainer.innerHTML = '';
   Object.values(images).forEach((path, i) => {
+    const div = document.createElement('div');
+    div.id = 'imgDiv';
     const image = document.createElement('img');
     image.src = path;
     image.alt = 'cat image';
@@ -120,7 +122,8 @@ const getRandomQuestion = async () => {
         await getRandomQuestion();
       };
     }
-    imageContainer.appendChild(image);
+    div.appendChild(image);
+    imageContainer.appendChild(div);
   });
 
   feedback.innerText = `${numberCorrect}/${MAX_QUESTIONS}`;
