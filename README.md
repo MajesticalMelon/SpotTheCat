@@ -1,14 +1,28 @@
-# Spot The Cat
+# Spot the Cat
 
-Spot The Cat is quizzical website that tests one's ability to pick out the difference between jaguars, cheetahs, and leopards.
+## Description
 
-The API being built for this application will store and deliver questions and scores. The prototype so far can deliver a random set of images per question as well as save a user's score once they complete the quiz. At the end of the quiz the user can choose to view their own score as well as a list of all other user's scores. Users can also create their own question set which is then saved onto the server so that it can be played by others. Scores are saved per user per quiz.
+**Spot the Cat** is a quizzical application that tests one's ability to differentiate between leopard, jaguar and cheetah. It also allows other users to create their own quizzes!
 
-As far as the client is concerned, all of the necessary pages exist with stylesheets attached, but they haven't all been dressed up to look nice.
+### API
 
-Going forward, I'm mostly gonna focus on the look of the website as a lot of it is mostly unstyles HTML. I'll also go through and refactor some code to (hopefully) make it more readable and in doing so add some clarification comments where I think its necessary.
+The backend API for **Spot the Cat** stores questions and scores. When a user creates a quiz, the questions, as well as the answers, are stored so that they can be retrieved later. There is also a default quiz made by me that is always present in the application. Scores are handled in a similar way. When a user completes any quiz, the username they provided, as well as the score they got out of 10, is stored so that it can later be shown in the leaderboard.
 
-To start to go above and beyond, I've included the [Cat Facts API](https://catfact.ninja/) which gives cat-related facts with every quiz question. I'm still thinking of more meaningful ways to add to my project beyond what I've already presented.
+As for data that gets delivered, we've already discussed how quiz questions and scores are gotten from the API. But, images, quiz names, scripts, HTML pages, and stylesheets are also retrieved from the backend. These data at these endpoints cannot be modified in any way as they are static files.
+
+### Post Mortem
+
+Early on, I had my girlfriend help me brainstorm ideas. From there we were able to bounce ideas back and forth and eventually we came to the concept for 'Spot the Cat' which I was able to build up into the website that I have now. Having this strong foundation for an idea really helped me stay focused. It wasn't so narrow of an idea that I couldn't expand on it and it wasn't so broad that there would too much to do to achieve a viable product.
+
+I started having a good amount of CSS issues once I started adding styles to my pages. It's something I hadn't worked with in a while and so it was a little difficult to get the hang of again. Also, that lack of static typing that comes from something like TypeScript sometimes made it difficult to know if I was using the wrong name for a key or if the data really wasn't there and it would mess up the intellisense. All in all, there weren't many major issues or app-breaking bugs.
+
+In the future, I'd like to be able to modify my question retrieval API to aloow me to choose certain questions or maybe even retrieve all of them at once. At the moment, fetching questions will get you a random question withuot replacement which can make it hard to customize the order of questions. I would also like to expand how quizzes are made and have variable amounts of images and quiz lengths. Right now, it is hardcoded at ten questions for a quiz and 3 images per question. One last major thing I would do is switch to using a framework like NextJS with TypeScript. I've worked with both a little before and it can take a lot of the headache out of making endpoints and scripts in JavaScript.
+
+### Above and Beyond
+
+In terms of external APIs, I have used only one and that is the ![Cat Facts API](https://catfact.ninja/). Right now, along with every question, a random cat fact will show up. There are ways to sort these by breed, but unfortunately I couldn't find jaguar, cheetah, and leopard in its list of breed tags. So, I just went with displaying a random cat fact retrieved from the API.
+
+### Borrowed Code
 
 The ParseBody and LoadFile functions have been borrowed from the homework assignments and are used to help with posting data and loading media files respectively. Both can be found in src/helpers.js.
 

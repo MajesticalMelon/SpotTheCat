@@ -6,6 +6,7 @@ let defaultQuestions = [];
 const userQuestions = {};
 let availableIndices = [];
 
+// Attempt to get the questions from questions.json
 try {
   defaultQuestions = JSON.parse(questionsFile);
 } catch (error) {
@@ -33,6 +34,8 @@ export const question = (request, response, body) => {
     response.writeHead(200, '{ Content-Type: application/json }');
     if (request.method.toLowerCase() === 'get') {
       const params = getQueryParams(request.url);
+
+      // If no params are provided, then get from the default questions
       if (params === undefined) {
         if (availableIndices.length === 0) {
           availableIndices = defaultQuestions.map((_, i) => i);
@@ -44,6 +47,7 @@ export const question = (request, response, body) => {
         );
         availableIndices.splice(index, 1);
       } else if (params.quiz) {
+        // If a quiz name is provided and it exists, then get questions from that quiz
         if (userQuestions[params.quiz]) {
           const questions = userQuestions[params.quiz];
           if (availableIndices.length === 0) {

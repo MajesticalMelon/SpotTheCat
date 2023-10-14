@@ -8,6 +8,7 @@ btnHome.onclick = () => {
   window.open('/', '_self');
 };
 
+// Get all the quizzes that currently exist
 fetch('/quizzes', {
   method: 'GET',
   headers: { Accept: 'application/json' },
@@ -21,6 +22,8 @@ fetch('/quizzes', {
   });
 });
 
+// Displays all scores for the selected quiz
+// If there are no scores, then it says so
 const showAllScores = async () => {
   const data = await fetch(
     `/score${currentQuiz ? `?quiz=${currentQuiz}` : ''}`,

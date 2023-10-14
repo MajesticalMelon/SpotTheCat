@@ -11,6 +11,7 @@ export const getFavicon = (request, response) => {
 export const getImage = (request, response) => {
   const ext = request.url.split('.');
 
+  // If there is a file extension, get the file
   if (ext.length > 1) {
     const file = fs.readFileSync(`client/${request.url}`);
 
@@ -18,6 +19,7 @@ export const getImage = (request, response) => {
     if (ext[-1] === 'jpg' || ext[-1] === 'jpeg') response.writeHead(200, { 'Content-Type': 'image/jpeg' });
     response.write(file);
   } else if (ext.length === 1) {
+    // If there is no extension, then get the file count at that directory
     const file = fs.readdirSync(`client/${request.url}`);
 
     response.writeHead(200, { 'Content-Type': 'application/json' });

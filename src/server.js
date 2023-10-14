@@ -12,6 +12,7 @@ const port = process.env.PORT || process.env.NODE_PORT || 3000;
 const onRequest = (request, response) => {
   console.log(request.url);
 
+  // Static files (excluding HTML)
   switch (request.url.split('/')[1]) {
     case 'scripts':
       getScript(request, response);
@@ -26,6 +27,7 @@ const onRequest = (request, response) => {
       break;
   }
 
+  // HTML pages and API routes
   switch (request.url.split('?')[0]) {
     case '/':
       pageHandler.getIndexHTML(request, response);

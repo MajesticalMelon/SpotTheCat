@@ -15,6 +15,7 @@ btnHome.onclick = () => {
   window.open('/', '_self');
 };
 
+// Gets the current user's score
 const showScoreByName = async (name) => {
   const data = await fetch(
     `/score?quiz=${currentQuiz || 'default'}&name=${name}`,
@@ -35,6 +36,7 @@ const showScoreByName = async (name) => {
   allScoresButton.innerText = 'Show All Scores!';
 };
 
+// Grabs all scores, orders them from highest to lowest, and displays them
 const showAllScores = async () => {
   const data = await fetch(
     `/score${currentQuiz ? `?quiz=${currentQuiz}` : ''}`,
@@ -73,6 +75,7 @@ allScoresButton.onclick = async () => {
   leaderboardText.style.display = 'block';
 };
 
+// Show user's score by default
 window.onload = async () => {
   await showScoreByName(currentName);
 };

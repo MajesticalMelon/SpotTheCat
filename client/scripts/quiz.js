@@ -14,6 +14,7 @@ btnHome.onclick = () => {
   window.open('/', '_self');
 };
 
+// Get the number of images in each image directory
 fetch('/images/cheetah', {
   method: 'GET',
   headers: { Accept: 'application/json' },
@@ -45,6 +46,7 @@ const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 
 // Grab a random image based on the question
 const getRandomImages = async (order) => {
+  // If there are no more available indices, then reset the array
   if (availableCheetahs.length === 0) {
     availableCheetahs = [...Array(numCheetahs).keys()];
   }
@@ -59,7 +61,8 @@ const getRandomImages = async (order) => {
 
   const images = [];
 
-  // Image filenames are indexed so they can be easily randomized
+  // Get a random index from the available... arrays
+  // and remove it so that it can't be grabbed later
   for (let i = 0; i < order.length; i++) {
     const c = order.charAt(i);
     let path = '';

@@ -32,7 +32,7 @@ promptElement.onchange = () => {
   addButton.disabled = prompt === '';
 };
 
-// Modify answer dropdown based on the selected image types
+// Modify answer dropdowns based on the selected image types
 image1Element.onchange = () => {
   image1 = image1Element.value;
   answerElement.childNodes.forEach((c) => {

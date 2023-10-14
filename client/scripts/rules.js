@@ -10,6 +10,7 @@ btnHome.onclick = () => {
   window.open('/', '_self');
 };
 
+// Update quiz select dropdown with all the quizzes that exist
 fetch('/quizzes', {
   method: 'GET',
   headers: { Accept: 'application/json' },
@@ -40,12 +41,13 @@ const enableContinue = () => {
   }
 };
 
+// Don't let the user start until a name has been inputted
 nameField.onchange = () => {
   nameInputted = true;
   enableContinue();
 };
 
-// Wait two seconds until the user can start the quiz
+// Also wait two seconds until the user can start the quiz
 setTimeout(() => {
   timerEnd = true;
   enableContinue();
