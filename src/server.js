@@ -3,7 +3,7 @@ import getCSS from './routes/styles.js';
 import getScript from './routes/scripts.js';
 import * as pageHandler from './routes/pages.js';
 import { question, getQuizNames } from './routes/questions.js';
-import getImage from './routes/images.js';
+import { getImage, getFavicon } from './routes/images.js';
 import { parseBody } from './helpers.js';
 import score from './routes/scores.js';
 
@@ -58,6 +58,7 @@ const onRequest = (request, response) => {
       parseBody(request, response, score);
       break;
     case '/favicon.ico':
+      getFavicon(request, response);
       break;
     default:
       pageHandler.getNotFound(request, response);

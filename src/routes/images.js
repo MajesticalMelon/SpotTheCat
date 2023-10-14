@@ -1,6 +1,14 @@
 import * as fs from 'fs';
 
-const getImage = (request, response) => {
+const favicon = fs.readFileSync('client/favicon.ico');
+
+export const getFavicon = (request, response) => {
+  response.writeHead(200, { 'Content-Type': 'image/x-icon' });
+  response.write(favicon);
+  response.end();
+};
+
+export const getImage = (request, response) => {
   const ext = request.url.split('.');
 
   if (ext.length > 1) {
@@ -17,5 +25,3 @@ const getImage = (request, response) => {
   }
   response.end();
 };
-
-export default getImage;
