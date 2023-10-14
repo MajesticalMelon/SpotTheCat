@@ -49,7 +49,7 @@
   },
   {
     "prompt": "Which one has lines on its face?",
-    "order": "jjc",
+    "order": "ljc",
     "answer": {
       "animal": "c",
       "index": "2"
@@ -72,8 +72,8 @@
     }
   },
   {
-    "prompt": "Which tends to be the biggest (out of jaguar, cheetah, and leopard)?",
-    "order": "llj",
+    "prompt": "Which tends to be the biggest?",
+    "order": "clj",
     "answer": {
       "animal": "j",
       "index": "2"
