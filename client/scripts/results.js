@@ -46,6 +46,11 @@ const showAllScores = async () => {
 
   const json = await data.json();
 
+  if (json.message) {
+    allScoresList.innerHTML = `<p>${json.message}</p>`;
+    return;
+  }
+
   title.innerText = 'Here are all the scores so far!';
   allScoresList.innerHTML = '';
   const values = Object.values(json);
