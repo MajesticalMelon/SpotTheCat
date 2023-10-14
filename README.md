@@ -30,7 +30,7 @@ The ParseBody and LoadFile functions have been borrowed from the homework assign
 
 URL: /question
 Supported Methods: GET, HEAD, POST
-Description: Randomly selects a question from the internal list of questions without replacement
+Description: Randomly selects a question from the internal list of questions without replacement, or adds a new quiz with a list of questions
 Query Parameters: quiz (the name of the quiz to get a question from)
 Body Paramaters: quiz & questions (the name of the quiz as well as the list of questions associated with it)
 Return Type: JSON
@@ -49,8 +49,8 @@ Return Type: JSON
 
 URL: /images/{path}
 Supported Methods: GET
-Description: Can GET the image at client/images/{path}
-Return Type: Image
+Description: Can GET the .jpg or .gif image at client/images/{path}
+Return Type: JPG or GIF
 
 URL: /scripts/{path}
 Supported Methods: GET
@@ -70,6 +70,16 @@ Return Type: HTML
 URL: /rules
 Supported Methods: GET
 Description: Gets client/rules.html
+Return Type: HTML
+
+URL: /about
+Supported Methods: GET
+Description: Gets client/about.html
+Return Type: HTML
+
+URL: /scores
+Supported Methods: GET
+Description: Gets client/scores.html
 Return Type: HTML
 
 URL: /quiz
