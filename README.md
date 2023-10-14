@@ -24,7 +24,7 @@ In terms of external APIs, I have used only one and that is the ![Cat Facts API]
 
 ### Borrowed Code
 
-The ParseBody and LoadFile functions have been borrowed from the homework assignments and are used to help with posting data and loading media files respectively. Both can be found in src/helpers.js.
+The ParseBody function has been directly copied from the homeworks and is found in src/helpers.js. The general setup of src/server.js as well as the routes in src/routes/ have aslso been borrowed from/heavily inspired by the homework assignments.
 
 ## Endpoints
 
