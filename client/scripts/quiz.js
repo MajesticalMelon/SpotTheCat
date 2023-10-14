@@ -1,6 +1,30 @@
 let numberCorrect = 0;
 let numQuestions = 0;
 const MAX_QUESTIONS = 10; // Capping at 10 questions for now
+let numCheetahs;
+let numJaguars;
+let numLeopards;
+
+fetch('/images/cheetah', {
+  method: 'GET',
+  headers: { Accept: 'application/json' },
+}).then((data) => data.json().then((json) => {
+  numCheetahs = json.imageCount;
+}));
+
+fetch('/images/jaguar', {
+  method: 'GET',
+  headers: { Accept: 'application/json' },
+}).then((data) => data.json().then((json) => {
+  numJaguars = json.imageCount;
+}));
+
+fetch('/images/leopard', {
+  method: 'GET',
+  headers: { Accept: 'application/json' },
+}).then((data) => data.json().then((json) => {
+  numLeopards = json.imageCount;
+}));
 
 // Grab url params
 const params = document.location.search.split('&');
@@ -9,39 +33,51 @@ const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 
 // Grab a random image based on the question
 const getRandomImages = async (order) => {
-  const numImagesPerAnimal = 3;
   const images = {};
 
-  // Make sure the same image is never used within the same question
-  for (let i = 0; i < order.length; i++) {
-    const index = Math.floor(Math.random() * numImagesPerAnimal) + 1;
-    const key = order.charAt(i) + index;
-    if (!images[key]) {
-      images[key] = key;
-    } else {
-      i--;
-    }
-  }
-
   // Image filenames are indexed so they can be easily randomized
-  Object.keys(images).forEach((key) => {
+  for (let i = 0; i < order.length; i++) {
+    const c = order.charAt(i);
     let path = '';
-    switch (key.charAt(0)) {
+    switch (c) {
       case 'l':
-        path = 'images/leopard/leopard_';
+        path = `images/leopard/leopard_${
+          Math.floor(Math.random() * numLeopards) + 1
+        }.jpg`;
         break;
       case 'c':
-        path = 'images/cheetah/cheetah_';
+        path = `images/cheetah/cheetah_${
+          Math.floor(Math.random() * numCheetahs) + 1
+        }.jpg`;
         break;
       case 'j':
-        path = 'images/jaguar/jaguar_';
+        path = `images/jaguar/jaguar_${
+          Math.floor(Math.random() * numJaguars) + 1
+        }.jpg`;
         break;
       default:
     }
 
-    path += `${key.charAt(1)}.jpg`;
-    images[key] = path;
-  });
+    images[`c${i}`] = path;
+  }
+  // Object.keys(images).forEach((key) => {
+  //   let path = '';
+  //   switch (key.charAt(0)) {
+  //     case 'l':
+  //       path = 'images/leopard/leopard_';
+  //       break;
+  //     case 'c':
+  //       path = 'images/cheetah/cheetah_';
+  //       break;
+  //     case 'j':
+  //       path = 'images/jaguar/jaguar_';
+  //       break;
+  //     default:
+  //   }
+
+  //   path += `${key.charAt(1)}.jpg`;
+  //   images[key] = path;
+  // });
 
   return images;
 };
