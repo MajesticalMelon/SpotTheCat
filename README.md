@@ -20,7 +20,7 @@ In the future, I'd like to be able to modify my question retrieval API to aloow 
 
 ### Above and Beyond
 
-In terms of external APIs, I have used only one and that is the ![Cat Facts API](https://catfact.ninja/). Right now, along with every question, a random cat fact will show up. There are ways to sort these by breed, but unfortunately I couldn't find jaguar, cheetah, and leopard in its list of breed tags. So, I just went with displaying a random cat fact retrieved from the API.
+In terms of external APIs, I have used only one and that is the [Cat Facts API](https://catfact.ninja/). Right now, along with every question, a random cat fact will show up. There are ways to sort these by breed, but unfortunately I couldn't find jaguar, cheetah, and leopard in its list of breed tags. So, I just went with displaying a random cat fact retrieved from the API.
 
 ### Borrowed Code
 
