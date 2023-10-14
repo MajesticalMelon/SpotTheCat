@@ -1,6 +1,6 @@
 let numberCorrect = 0;
 let numQuestions = 0;
-const MAX_QUESTIONS = 20; // Capping at 10 questions for now
+const MAX_QUESTIONS = 10; // Capping at 10 questions for now
 let numCheetahs;
 let numJaguars;
 let numLeopards;
@@ -52,7 +52,7 @@ const getRandomImages = async (order) => {
     availableLeopards = [...Array(numLeopards).keys()];
   }
 
-  const images = {};
+  const images = [];
 
   // Image filenames are indexed so they can be easily randomized
   for (let i = 0; i < order.length; i++) {
@@ -86,26 +86,8 @@ const getRandomImages = async (order) => {
       default:
     }
 
-    images[`${c}${i}`] = path;
+    images.push(path);
   }
-  // Object.keys(images).forEach((key) => {
-  //   let path = '';
-  //   switch (key.charAt(0)) {
-  //     case 'l':
-  //       path = 'images/leopard/leopard_';
-  //       break;
-  //     case 'c':
-  //       path = 'images/cheetah/cheetah_';
-  //       break;
-  //     case 'j':
-  //       path = 'images/jaguar/jaguar_';
-  //       break;
-  //     default:
-  //   }
-
-  //   path += `${key.charAt(1)}.jpg`;
-  //   images[key] = path;
-  // });
 
   return images;
 };
@@ -168,7 +150,7 @@ const getRandomQuestion = async () => {
   prompt.innerText = `${numQuestions + 1}. ${json.prompt}`;
 
   imageContainer.innerHTML = '';
-  Object.values(images).forEach((path, i) => {
+  images.forEach((path, i) => {
     const div = document.createElement('div');
     div.id = 'imgDiv';
     const image = document.createElement('img');

@@ -1,21 +1,6 @@
 import { getQueryParams } from '../helpers.js';
 
-const scores = {
-  default: {
-    owen: {
-      name: 'owen',
-      score: 5,
-    },
-    Emily: {
-      name: 'Emily',
-      score: 10,
-    },
-    AThirdOne: {
-      name: 'AThirdOne',
-      score: 8,
-    },
-  },
-};
+const scores = {};
 
 const score = (request, response, body) => {
   if (

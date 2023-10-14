@@ -1,4 +1,5 @@
 const allScoresList = document.getElementById('lsAllScores');
+const noScoresText = document.getElementById('noScores');
 const quizSelect = document.getElementById('quizSelect');
 const currentQuiz = undefined;
 
@@ -30,9 +31,11 @@ const showAllScores = async () => {
   const values = Object.values(json);
 
   if (values.length === 0) {
-    allScoresList.innerHTML = 'No scores right now!';
+    noScoresText.style.display = 'flex';
     return;
   }
+
+  noScoresText.style.display = 'none';
 
   const sorted = values.sort((valueA, valueB) => valueB.score - valueA.score);
   sorted.forEach((value) => {

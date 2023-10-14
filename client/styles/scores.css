@@ -37,6 +37,11 @@ button {
   margin-bottom: 1rem;
 }
 
+#noScores {
+  display: none;
+  justify-content: center;
+}
+
 ol {
   margin-top: 0rem;
   margin-left: -15px;

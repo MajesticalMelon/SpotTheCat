@@ -24,7 +24,7 @@
     }
   },
   {
-    "prompt": "Which one is a leopard?",
+    "prompt": "Spot the leopard!",
     "order": "jcl",
     "answer": {
       "animal": "l",
@@ -32,7 +32,7 @@
     }
   },
   {
-    "prompt": "Which one is a cheetah?",
+    "prompt": "Spot the cheetah!",
     "order": "cjl",
     "answer": {
       "animal": "c",
@@ -40,8 +40,40 @@
     }
   },
   {
-    "prompt": "Which one is a jaguar?",
+    "prompt": "Spot the jaguar!",
     "order": "lcj",
+    "answer": {
+      "animal": "j",
+      "index": "2"
+    }
+  },
+  {
+    "prompt": "Which one has lines on its face?",
+    "order": "jjc",
+    "answer": {
+      "animal": "c",
+      "index": "2"
+    }
+  },
+  {
+    "prompt": "Which one has dots within its rings?",
+    "order": "jcl",
+    "answer": {
+      "animal": "j",
+      "index": "0"
+    }
+  },
+  {
+    "prompt": "Pick out the fastest land animal",
+    "order": "cjl",
+    "answer": {
+      "animal": "c",
+      "index": "0"
+    }
+  },
+  {
+    "prompt": "Which tends to be the biggest (out of jaguar, cheetah, and leopard)?",
+    "order": "llj",
     "answer": {
       "animal": "j",
       "index": "2"
