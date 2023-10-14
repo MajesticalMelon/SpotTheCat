@@ -28,76 +28,76 @@ The ParseBody function has been directly copied from the homeworks and is found 
 
 ## Endpoints
 
-URL: /question
-Supported Methods: GET, HEAD, POST
-Description: Randomly selects a question from the internal list of questions without replacement, or adds a new quiz with a list of questions
-Query Parameters: quiz (the name of the quiz to get a question from)
-Body Paramaters: quiz & questions (the name of the quiz as well as the list of questions associated with it)
-Return Type: JSON
+URL: /question <br/>
+Supported Methods: GET, HEAD, POST <br/>
+Description: Randomly selects a question from the internal list of questions without replacement, or adds a new quiz with a list of questions <br/>
+Query Parameters: quiz (the name of the quiz to get a question from) <br/>
+Body Paramaters: quiz & questions (the name of the quiz as well as the list of questions associated with it) <br/>
+Return Type: JSON <br/>
 
-URL: /score
-Supported Methods: GET, HEAD, POST
-Description: Can GET all scores, GET a specific user's score, or POST/PATCH a user's score
-Query Parameters: quiz & name (the quiz and the name of the user who's score you're looking for in that quiz)
-Body Parameters: quiz, name, & score (the name of the user, their score, and the quiz the score is attached to)
-Return Type: JSON
+URL: /score <br/>
+Supported Methods: GET, HEAD, POST <br/>
+Description: Can GET all scores, GET a specific user's score, or POST/PATCH a user's score <br/>
+Query Parameters: quiz & name (the quiz and the name of the user who's score you're looking for in that quiz) <br/>
+Body Parameters: quiz, name, & score (the name of the user, their score, and the quiz the score is attached to) <br/>
+Return Type: JSON <br/>
 
-URL: /quizzes
-Supported Methods: GET, HEAD
-Description: Gets a list of all the quiz names including an empty name ('') for the default quiz
-Return Type: JSON
+URL: /quizzes <br/>
+Supported Methods: GET, HEAD <br/>
+Description: Gets a list of all the quiz names including an empty name ('') for the default quiz <br/>
+Return Type: JSON <br/>
 
-URL: /images/{path}
-Supported Methods: GET
-Description: Can GET the .jpg or .gif image at client/images/{path}
-Return Type: JPG or GIF
+URL: /images/{path} <br/>
+Supported Methods: GET <br/>
+Description: Can GET the .jpg or .gif image at client/images/{path} <br/>
+Return Type: JPG or GIF <br/>
 
-URL: /scripts/{path}
-Supported Methods: GET
-Description: Can GET the .js file at client/scripts/{path}
-Return Type: JS
+URL: /scripts/{path} <br/>
+Supported Methods: GET <br/>
+Description: Can GET the .js file at client/scripts/{path} <br/>
+Return Type: JS <br/>
 
-URL: /styles/{path}
-Supported Methods: GET
-Description: Can GET the .css file at client/styles/{path}
-Return Type: CSS
+URL: /styles/{path} <br/>
+Supported Methods: GET <br/>
+Description: Can GET the .css file at client/styles/{path} <br/>
+Return Type: CSS <br/>
 
-URL: /
-Supported Methods: GET
-Description: Gets client/index.html
-Return Type: HTML
+URL: / <br/>
+Supported Methods: GET <br/>
+Description: Gets client/index.html <br/>
+Return Type: HTML <br/>
 
-URL: /rules
-Supported Methods: GET
-Description: Gets client/rules.html
-Return Type: HTML
+URL: /rules <br/>
+Supported Methods: GET <br/>
+Description: Gets client/rules.html <br/>
+Return Type: HTML <br/>
 
-URL: /about
-Supported Methods: GET
-Description: Gets client/about.html
-Return Type: HTML
+URL: /about <br/>
+Supported Methods: GET <br/>
+Description: Gets client/about.html <br/>
+Return Type: HTML <br/>
 
-URL: /scores
-Supported Methods: GET
-Description: Gets client/scores.html
-Return Type: HTML
+URL: /scores <br/>
+Supported Methods: GET <br/>
+Description: Gets client/scores.html <br/>
+Return Type: HTML <br/>
 
-URL: /quiz
-Supported Methods: GET
-Description: Gets client/quiz.html
-Return Type: HTML
+URL: /quiz <br/>
+Supported Methods: GET <br/>
+Description: Gets client/quiz.html <br/>
+Return Type: HTML <br/>
 
-URL: /results
-Supported Methods: GET
-Description: Gets client/results.html
-Return Type: HTML
+URL: /results <br/>
+Supported Methods: GET <br/>
+Description: Gets client/results.html <br/>
+Return Type: HTML <br/>
 
-URL: /create
-Supported Methods: GET
-Description: Gets client/create.html
-Return Type: HTML
+URL: /create <br/>
+Supported Methods: GET <br/>
+Description: Gets client/create.html <br/>
+Return Type: HTML <br/>
 
-URL: /favicon.ico
-Supported Methods: GET
-Description: Gets client/favicon.ico
-Return Type: x-icon (ico file)
+URL: /favicon.ico <br/>
+Supported Methods: GET <br/>
+Description: Gets client/favicon.ico <br/>
+Return Type: x-icon (ico file) <br/>
