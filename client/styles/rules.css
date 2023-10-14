@@ -24,6 +24,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -1rem;
   margin-bottom: 3rem;
   padding: 1rem 3rem;
   border-radius: 5px;
@@ -34,7 +35,7 @@ main {
 }
 
 #rules p {
-  line-height: 0.3rem;
+  text-align: center;
 }
 
 #rules h2 {

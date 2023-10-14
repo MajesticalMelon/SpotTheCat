@@ -33,6 +33,9 @@ const onRequest = (request, response) => {
     case '/create':
       pageHandler.getCreateHTML(request, response);
       break;
+    case '/about':
+      pageHandler.getAboutHTML(request, response);
+      break;
     case '/rules':
       pageHandler.getRulesHTML(request, response);
       break;

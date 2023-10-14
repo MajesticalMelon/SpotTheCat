@@ -39,4 +39,5 @@ main {
 button {
   width: 100%;
   margin-bottom: 10px;
+  background-color: var(--black);
 }
