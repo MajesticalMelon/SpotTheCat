@@ -1,9 +1,14 @@
+const btnHome = document.getElementById('btnHome');
 let timerEnd = false;
 let nameInputted = false;
 
 const nameField = document.getElementById('nameField');
 const quizSelect = document.getElementById('quiz');
 quizSelect.innerHTML = '';
+
+btnHome.onclick = () => {
+  window.open('/', '_self');
+};
 
 fetch('/quizzes', {
   method: 'GET',

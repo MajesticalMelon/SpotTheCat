@@ -1,7 +1,12 @@
 const allScoresList = document.getElementById('lsAllScores');
 const noScoresText = document.getElementById('noScores');
 const quizSelect = document.getElementById('quizSelect');
+const btnHome = document.getElementById('btnHome');
 const currentQuiz = undefined;
+
+btnHome.onclick = () => {
+  window.open('/', '_self');
+};
 
 fetch('/quizzes', {
   method: 'GET',

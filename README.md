@@ -30,7 +30,7 @@ Return Type: JSON
 
 URL: /quizzes
 Supported Methods: GET, HEAD
-Description: Gets a list of all the quiz names including and empty name ('') for the default quiz
+Description: Gets a list of all the quiz names including an empty name ('') for the default quiz
 Return Type: JSON
 
 URL: /images/{path}
@@ -72,3 +72,8 @@ URL: /create
 Supported Methods: GET
 Description: Gets client/create.html
 Return Type: HTML
+
+URL: /favicon.ico
+Supported Methods: GET
+Description: Gets client/favicon.ico
+Return Type: x-icon (ico file)

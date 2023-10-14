@@ -76,3 +76,9 @@ a {
     text-decoration-color: var(--brown);
   }
 }
+
+#btnHome {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}

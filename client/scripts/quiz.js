@@ -1,3 +1,4 @@
+const btnHome = document.getElementById('btnHome');
 let numberCorrect = 0;
 let numQuestions = 0;
 const MAX_QUESTIONS = 10; // Capping at 10 questions for now
@@ -8,6 +9,10 @@ let numLeopards;
 let availableCheetahs = [];
 let availableJaguars = [];
 let availableLeopards = [];
+
+btnHome.onclick = () => {
+  window.open('/', '_self');
+};
 
 fetch('/images/cheetah', {
   method: 'GET',

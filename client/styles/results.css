@@ -48,9 +48,3 @@ li div {
   justify-content: space-between;
   align-items: center;
 }
-
-#btnHome {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}

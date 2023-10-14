@@ -7,6 +7,7 @@ const answerElement = document.getElementById('answer');
 const addButton = document.getElementById('addButton');
 const submitButton = document.getElementById('submitButton');
 const numQuestions = document.getElementById('numQuestions');
+const btnHome = document.getElementById('btnHome');
 
 let num = 0;
 
@@ -16,6 +17,10 @@ let image1 = 'l';
 let image2 = 'c';
 let image3 = 'j';
 const answer = [0, 'l'];
+
+btnHome.onclick = () => {
+  window.open('/', '_self');
+};
 
 nameElement.onchange = () => {
   quizName = nameElement.value;
