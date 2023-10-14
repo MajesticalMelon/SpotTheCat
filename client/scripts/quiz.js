@@ -1,15 +1,20 @@
 let numberCorrect = 0;
 let numQuestions = 0;
-const MAX_QUESTIONS = 10; // Capping at 10 questions for now
+const MAX_QUESTIONS = 20; // Capping at 10 questions for now
 let numCheetahs;
 let numJaguars;
 let numLeopards;
+
+let availableCheetahs = [];
+let availableJaguars = [];
+let availableLeopards = [];
 
 fetch('/images/cheetah', {
   method: 'GET',
   headers: { Accept: 'application/json' },
 }).then((data) => data.json().then((json) => {
   numCheetahs = json.imageCount;
+  availableCheetahs = [...Array(numCheetahs).keys()];
 }));
 
 fetch('/images/jaguar', {
@@ -17,6 +22,7 @@ fetch('/images/jaguar', {
   headers: { Accept: 'application/json' },
 }).then((data) => data.json().then((json) => {
   numJaguars = json.imageCount;
+  availableJaguars = [...Array(numJaguars).keys()];
 }));
 
 fetch('/images/leopard', {
@@ -24,6 +30,7 @@ fetch('/images/leopard', {
   headers: { Accept: 'application/json' },
 }).then((data) => data.json().then((json) => {
   numLeopards = json.imageCount;
+  availableLeopards = [...Array(numLeopards).keys()];
 }));
 
 // Grab url params
@@ -33,6 +40,18 @@ const currentQuiz = params.length > 1 ? params[1].split('=')[1] : undefined;
 
 // Grab a random image based on the question
 const getRandomImages = async (order) => {
+  if (availableCheetahs.length === 0) {
+    availableCheetahs = [...Array(numCheetahs).keys()];
+  }
+
+  if (availableJaguars.length === 0) {
+    availableJaguars = [...Array(numJaguars).keys()];
+  }
+
+  if (availableLeopards.length === 0) {
+    availableLeopards = [...Array(numLeopards).keys()];
+  }
+
   const images = {};
 
   // Image filenames are indexed so they can be easily randomized
@@ -42,23 +61,32 @@ const getRandomImages = async (order) => {
     switch (c) {
       case 'l':
         path = `images/leopard/leopard_${
-          Math.floor(Math.random() * numLeopards) + 1
+          availableLeopards.splice(
+            Math.floor(Math.random() * availableLeopards.length),
+            1,
+          )[0] + 1
         }.jpg`;
         break;
       case 'c':
         path = `images/cheetah/cheetah_${
-          Math.floor(Math.random() * numCheetahs) + 1
+          availableCheetahs.splice(
+            Math.floor(Math.random() * availableCheetahs.length),
+            1,
+          )[0] + 1
         }.jpg`;
         break;
       case 'j':
         path = `images/jaguar/jaguar_${
-          Math.floor(Math.random() * numJaguars) + 1
+          availableJaguars.splice(
+            Math.floor(Math.random() * availableJaguars.length),
+            1,
+          )[0] + 1
         }.jpg`;
         break;
       default:
     }
 
-    images[`c${i}`] = path;
+    images[`${c}${i}`] = path;
   }
   // Object.keys(images).forEach((key) => {
   //   let path = '';
