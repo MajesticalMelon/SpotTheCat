@@ -1,6 +1,21 @@
 import { getQueryParams } from '../helpers.js';
 
-const scores = {};
+const scores = {
+  default: {
+    owen: {
+      name: 'owen',
+      score: 5,
+    },
+    Emily: {
+      name: 'Emily',
+      score: 10,
+    },
+    AThirdOne: {
+      name: 'AThirdOne',
+      score: 8,
+    },
+  },
+};
 
 const score = (request, response, body) => {
   if (
@@ -12,7 +27,7 @@ const score = (request, response, body) => {
       // Grab scores for the default quiz if no params are provided
       if (params === undefined) {
         response.writeHead(200, '{ Content-Type: application/json }');
-        response.write(JSON.stringify(scores.default));
+        response.write(JSON.stringify(scores.default || {}));
       } else if (params.quiz) {
         // Make sure quiz and name params exist
         if (params.name) {

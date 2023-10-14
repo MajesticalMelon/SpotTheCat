@@ -49,13 +49,12 @@ const showAllScores = async () => {
   title.innerText = 'Here are all the scores so far!';
   allScoresList.innerHTML = '';
   const values = Object.values(json);
-  const sorted = values.sort((valueA, valueB) => valueA.score - valueB.score);
-  console.log(sorted);
+  const sorted = values.sort((valueA, valueB) => valueB.score - valueA.score);
   sorted.forEach((value) => {
     allScoresList.innerHTML += `
     <li>
       <div>
-        <h4>${value.name}</h2><p> ${value.score}</p>
+        <p>${value.name}</p><p> ${value.score}</p>
       </div
     </li>
     `;

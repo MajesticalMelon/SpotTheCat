@@ -56,3 +56,23 @@ input[type='text'] {
   border-radius: 5px;
   border: 2px solid var(--brown);
 }
+
+a {
+  color: unset;
+  text-decoration: underline dotted;
+
+  transition: all 0.1s;
+
+  &:hover {
+    filter: brightness(200%);
+  }
+
+  &:active {
+    filter: brightness(150%);
+  }
+
+  &:visited {
+    color: var(--brown);
+    text-decoration-color: var(--brown);
+  }
+}

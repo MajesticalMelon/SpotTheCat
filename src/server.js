@@ -36,6 +36,9 @@ const onRequest = (request, response) => {
     case '/about':
       pageHandler.getAboutHTML(request, response);
       break;
+    case '/scores':
+      pageHandler.getScoresHTML(request, response);
+      break;
     case '/rules':
       pageHandler.getRulesHTML(request, response);
       break;

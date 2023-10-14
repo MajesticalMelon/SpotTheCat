@@ -15,13 +15,17 @@ button {
   background-color: var(--brown);
 }
 
-#userScore {
+#selectContainer {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: center;
   width: 20vw;
-  border-bottom: 1px solid var(--orange);
   margin-bottom: 1rem;
+  border-bottom: 1px solid var(--brown);
+}
+
+#selectContainer p {
+  padding-right: 8px;
 }
 
 #listContainer {
@@ -29,18 +33,18 @@ button {
 }
 
 #leaderboard {
-  margin-bottom: -1rem;
-  margin-top: 0rem;
-  display: none;
+  margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ol {
+  margin-top: 0rem;
   margin-left: -15px;
   list-style-type: decimal;
 }
 
 ol li {
-  line-height: 0;
+  line-height: 0rem;
 }
 
 li div {
