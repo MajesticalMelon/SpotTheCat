@@ -2,7 +2,7 @@ const allScoresList = document.getElementById('lsAllScores');
 const noScoresText = document.getElementById('noScores');
 const quizSelect = document.getElementById('quizSelect');
 const btnHome = document.getElementById('btnHome');
-const currentQuiz = undefined;
+let currentQuiz;
 
 btnHome.onclick = () => {
   window.open('/', '_self');
@@ -55,6 +55,11 @@ const showAllScores = async () => {
   </li>
   `;
   });
+};
+
+quizSelect.onchange = async () => {
+  currentQuiz = quizSelect.value;
+  await showAllScores();
 };
 
 showAllScores();
